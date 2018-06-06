@@ -1,0 +1,9 @@
+.DS_Store
+.htmlhintrc
+.stylelintrc
+.eslintrc.json
+img/
+.eslintrc.js
+.json
+node_modules
+*.json
