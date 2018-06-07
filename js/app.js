@@ -1,11 +1,6 @@
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+// create a random deck on page load
 
-let cardSymbolsShuffle = [ //holds cards symbols (remember index is 0 to 15)
+let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-diamond",
     "fa fa-paper-plane-o",
     "fa fa-anchor",
@@ -24,12 +19,26 @@ let cardSymbolsShuffle = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-cube",
 ];
 
-let symbolsAfterShuffle = shuffle(cardSymbolsShuffle);
+//access the DOM Elements Needed
 
+let getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
+let useDeck = getDeck[0]; // access the ul from the NodeList
+let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
 
+// shuffless and builds the card deck
+function buildDeck(){
+    let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
+    for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
+        let getSymbol= symbolsShuffle[i]; //takes one symbol from the shuffled array based on index
+        let modifyListItem = getListItems[i]; //takes one i element based on index
+        modifyListItem.className = getSymbol; //changes the class of the i element to one taken from the shuffled array
+    }
+}
+document.onload = buildDeck(); // calls the function on page load
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -43,7 +52,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
