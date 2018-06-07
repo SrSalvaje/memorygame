@@ -1,16 +1,11 @@
 /*
- * Create a list that holds all of your cards
- */
-
-
-/*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
 
-let cardSymbolsShufle = [
+let cardSymbolsShuffle = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-diamond",
     "fa fa-paper-plane-o",
     "fa fa-anchor",
@@ -27,7 +22,12 @@ let cardSymbolsShufle = [
     "fa fa-bicycle",
     "fa fa-paper-plane-o",
     "fa fa-cube",
-]
+];
+
+let symbolsAfterShuffle = shuffle(cardSymbolsShuffle);
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
