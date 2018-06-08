@@ -78,10 +78,19 @@ function openShow(){
             this.classList.toggle("open");
             this.classList.toggle("show");
         });
+        addCardsToArray();
 
     }
 }
 this.onclick=openShow();
+
+//adds opened cards to array
+function addCardsToArray(){
+    if(this.getAttribute("class") == "card open show"){
+       openedCards.push(this);
+    }
+}
+
 
 
 
