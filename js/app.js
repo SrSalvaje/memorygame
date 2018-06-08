@@ -33,7 +33,15 @@ function buildDeck(){
         modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
     }
 }
-document.onload = buildDeck(); // calls the function on page load
+
+// builds deck on page load
+document.onload = buildDeck(); 
+
+// builds deck when repeat is clicked
+let repeat = document.querySelector(".fa-repeat");
+repeat.addEventListener("click", function(){
+	buildDeck();
+});
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -53,11 +61,11 @@ function shuffle(array) {
 }
 
 // event listner for clicking cards
-let getCards = useDeck.getElementsByTagName("li");
-function openCards(){
-    getCards.setAttribute("class","open show");
-}
-document.onclick = openCards();
+// let getCards = useDeck.getElementsByTagName("li");
+// function openCards(){
+//     getCards.setAttribute("class","open show");
+// }
+// document.onclick = openCards();
 
 
 /*
