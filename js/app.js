@@ -1,54 +1,30 @@
-// create a random deck on page load
+/*
+*
+*
+this section builds a random deck when page loads and when repeat is clciked
+*
+*
+*/ 
 
+//access the DOM Elements and declares the variables needed to build deck 
 let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
-    "fa fa-diamond",
-    "fa fa-paper-plane-o",
-    "fa fa-anchor",
-    "fa fa-bolt",
-    "fa fa-cube",
-    "fa fa-anchor",
-    "fa fa-leaf",
-    "fa fa-bicycle",
-    "fa fa-diamond",
-    "fa fa-bomb",
-    "fa fa-leaf",
-    "fa fa-bomb",
-    "fa fa-bolt",
-    "fa fa-bicycle",
-    "fa fa-paper-plane-o",
-    "fa fa-cube",
-];
-
-//access the DOM Elements Needed
-
+    "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor","fa fa-bolt",
+    "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle",
+    "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb",
+    "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube",
+]
 let getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
 let useDeck = getDeck[0]; // access the ul from the NodeList
 let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
+let repeat = document.querySelector(".fa-repeat"); // get the repeat icon
 
-// shuffless and builds the card deck
-function buildDeck(){
-    let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
-    for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
-        let modifyListItem = getListItems[i]; //takes one i element based on index
-        modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
-    }
-}
-
-// builds deck on page load
-document.onload = buildDeck(); 
-
-// builds deck when repeat is clicked
-let repeat = document.querySelector(".fa-repeat");
-repeat.addEventListener("click", function(){
-	buildDeck();
-});
-
-
+/*
+*functions
+*
+*/
 // Shuffle function from http://stackoverflow.com/a/2450976
-
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
+    let currentIndex = array.length, temporaryValue, randomIndex;
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -56,9 +32,36 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
+
+// builds a random card deck
+function buildDeck(){
+    let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
+    for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
+        let modifyListItem = getListItems[i]; //takes one i element based on index
+        modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
+    }
+}
+/*
+*
+event listeners
+*
+*/
+// builds deck on page load
+document.onload = buildDeck(); 
+// builds deck when repeat is clicked
+repeat.addEventListener("click", function(){
+    buildDeck();
+});
+
+/*
+*
+*
+this section deals with flipping cards
+*
+*
+*/
 
 // event listner for clicking cards
 // let getCards = useDeck.getElementsByTagName("li");
@@ -66,6 +69,20 @@ function shuffle(array) {
 //     getCards.setAttribute("class","open show");
 // }
 // document.onclick = openCards();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
