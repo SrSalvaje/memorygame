@@ -74,19 +74,27 @@ let openedCards=[
 
 function openShow(){
     for(let i=0; i<getCards.length; i++){
-        getCards[i].addEventListener("click", function(){
-            this.classList.toggle("open");
-            this.classList.toggle("show");
-            if(this.getAttribute("class") == "card open show"){
-                openedCards.push(this);
-             }
+        getCards[i].addEventListener("click", function(){ //adds event listener to all cards
+            this.classList.toggle("open"); //adds open class on clicl
+            this.classList.toggle("show"); //adds show class on click
+            // if(this.getAttribute("class") == "card open show"){ //adds opened cards to array
+            //     openedCards.push(this);
+            //  }
         });
+        addCardstoArray();
+    }
+}
+function addCardstoArray(){
+    for(let i=0; i<getCards.length; i++){
+        if(getCards[i].hasAttribute("class") == "card open show" && openedCards.length<2){
+            openedCards.push(this);
+        }
     }
 }
 
 this.onclick=openShow();
 
-//adds opened cards to array
+
 
 
 
