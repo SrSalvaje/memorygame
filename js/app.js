@@ -16,7 +16,7 @@ let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
 let getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
 let useDeck = getDeck[0]; // access the ul from the NodeList
 let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
-let repeat = document.querySelector(".fa-repeat"); // get the repeat icon
+let repeat = document.querySelector(".fa-repeat"); // gets the repeat icon
 
 /*
 *functions
@@ -63,17 +63,22 @@ this section deals with flipping cards
 *
 */
 
-// event listner for clicking cards
-// let getCards = useDeck.getElementsByTagName("li");
-// function openCards(){
-//     getCards.setAttribute("class","open show");
-// }
-// document.onclick = openCards();
+//variables and DOM elements
 
 
+let getCards=useDeck.getElementsByClassName("card");
 
+//functions
 
-
+function openShow(){
+    for(let i=0; i<getCards.length; i++){
+        getCards[i].addEventListener("click", function(){
+            this.classList.toggle("open");
+            this.classList.toggle("show");
+        });
+    }
+}
+this.onclick=openShow();
 
 
 
