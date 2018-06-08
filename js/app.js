@@ -29,9 +29,8 @@ let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols f
 function buildDeck(){
     let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
     for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
-        let getSymbol= symbolsShuffle[i]; //takes one symbol from the shuffled array based on index
         let modifyListItem = getListItems[i]; //takes one i element based on index
-        modifyListItem.className = getSymbol; //changes the class of the i element to one taken from the shuffled array
+        modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
     }
 }
 document.onload = buildDeck(); // calls the function on page load
@@ -53,8 +52,17 @@ function shuffle(array) {
     return array;
 }
 
+// event listner for clicking cards
+let getCards = useDeck.getElementsByTagName("li");
+function openCards(){
+    getCards.setAttribute("class","open show");
+}
+document.onclick = openCards();
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
+ * 
  *  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
