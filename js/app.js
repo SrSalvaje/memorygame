@@ -67,6 +67,8 @@ this section deals with flipping cards
 
 
 let getCards=useDeck.getElementsByClassName("card");
+let openedCards=[
+]
 
 //functions
 
@@ -76,6 +78,7 @@ function openShow(){
             this.classList.toggle("open");
             this.classList.toggle("show");
         });
+
     }
 }
 this.onclick=openShow();
