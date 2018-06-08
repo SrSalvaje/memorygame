@@ -77,19 +77,16 @@ function openShow(){
         getCards[i].addEventListener("click", function(){
             this.classList.toggle("open");
             this.classList.toggle("show");
+            if(this.getAttribute("class") == "card open show"){
+                openedCards.push(this);
+             }
         });
-        addCardsToArray();
-
     }
 }
+
 this.onclick=openShow();
 
 //adds opened cards to array
-function addCardsToArray(){
-    if(this.getAttribute("class") == "card open show"){
-       openedCards.push(this);
-    }
-}
 
 
 
