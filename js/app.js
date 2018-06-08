@@ -81,19 +81,18 @@ function openShow(){
             //     openedCards.push(this);
             //  }
         });
-        addCardstoArray();
+        // addCardsToArray();
     }
 }
-function addCardstoArray(){
-    for(let i=0; i<getCards.length; i++){
-        if(getCards[i].hasAttribute("class") == "card open show" && openedCards.length<2){
-            openedCards.push(this);
-        }
-    }
-}
+// function addCardstoArray(){
+//     for(let i=0; i<getCards.length; i++){
+//         if(getCards[i].getAttribute("class") == "card open show"){
+//             openedCards.push(getCards[i]);
+//         }
+//     }
+// }
 
 this.onclick=openShow();
-
 
 
 
