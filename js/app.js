@@ -93,9 +93,6 @@ function pushToArray(){
     
 // event listeners
 
-repeat.addEventListener("click", function(){ //adds event listener for openShow function when repeat is pressed (not sure if i need it yet)
-    openShow();
-});
 document.onload = openShow(); // adds open show event listner when page loads
 
 
