@@ -79,16 +79,15 @@ function openShow(){ //adds event listener to display cards on click
         getCards[i].addEventListener("click", function(){
             this.classList.toggle("open"); //adds open class on clicl
             this.classList.toggle("show"); //adds show class on click
-            pushToArray();
+            pushToArray(i);
         });
+        
     }
 }
-function pushToArray(){
-    for(let i=0; i<getCards.length; i++){
-        if(getCards[i].getAttribute("class")=="card open show"){
-            openedCards.push(getCards[i]);
-        };   
-    };
+function pushToArray(i){
+    if(getCards[i].getAttribute("class")=="card open show"){
+        openedCards.push(getCards[i]);
+    }   
 }
     
 // event listeners
