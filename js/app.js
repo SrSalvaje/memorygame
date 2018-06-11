@@ -55,6 +55,7 @@ repeat.addEventListener("click", function(){
     buildDeck();
 });
 
+
 /*
 *
 *
@@ -62,6 +63,7 @@ this section deals with flipping cards
 *
 *
 */
+
 
 //variables and DOM elements
 
@@ -72,34 +74,37 @@ let openedCards=[
 
 //functions
 
-function openShow(){
+function openShow(){ //adds event listener to display cards on click
     for(let i=0; i<getCards.length; i++){
-        getCards[i].addEventListener("click", function(){ //adds event listener to all cards
+        getCards[i].addEventListener("click", function(){
             this.classList.toggle("open"); //adds open class on clicl
             this.classList.toggle("show"); //adds show class on click
-            // if(this.getAttribute("class") == "card open show"){ //adds opened cards to array
-            //     openedCards.push(this);
-            //  }
+            pushToArray();
         });
-        // addCardsToArray();
     }
 }
-// function addCardstoArray(){
-//     for(let i=0; i<getCards.length; i++){
-//         if(getCards[i].getAttribute("class") == "card open show"){
-//             openedCards.push(getCards[i]);
-//         }
-//     }
-// }
+function pushToArray(){
+    for(let i=0; i<getCards.length; i++){
+        if(getCards[i].getAttribute("class")=="card open show"){
+            openedCards.push(getCards[i]);
+        };   
+    };
+}
+    
+// event listeners
 
-this.onclick=openShow();
+repeat.addEventListener("click", function(){ //adds event listener for openShow function when repeat is pressed (not sure if i need it yet)
+    openShow();
+});
+document.onload = openShow(); // adds open show event listner when page loads
 
 
 
 
+// 
 
 
-
+ 
 
 
 
