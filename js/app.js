@@ -80,37 +80,43 @@ function flipCards(){ //adds event listener to display cards on click
             openShow(getCards, i);
             pushToArray(i);
             checkMatch();
+            closeCards(i);
+            // openedCards.splice(0,openedCards.length); //clears cards from the opened card array
+
         });
-        
     }
 }
 
-function openShow(element, i){
+function openShow(element, i){ //adds/removes the open and show classes, it takes the name of Dom element you want to apply it to and the index of the loop needed to iterate
     element[i].classList.toggle("open");
     element[i].classList.toggle("show");
 }
-function pushToArray(i){
-    if(getCards[i].getAttribute("class")=="card open show"){
-        openedCards.push(getCards[i]);
+function pushToArray(i){ //it adds opened cars to an empty array
+    if(getCards[i].getAttribute("class")=="card open show"){ //checks that cards are opened
+        openedCards.push(getCards[i]); //pushes to array
     }   
 }
 
-function checkMatch(){
+function checkMatch(){ //checks the array that holds the opened cards for match
     if(openedCards.length==2){
-        let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class");
+        let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
         let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
-        if(cardOne==cardTwo){
-            for(let i=0;i<openedCards.length;i++){
-                openShow(openedCards, i);
+        if(cardOne==cardTwo){ //checks if they have the same class
+            for(let i=0;i<openedCards.length;i++){ //if they do, it adds the match class
                 openedCards[i].classList.toggle("match");
             }
-            openedCards.splice(0,2);
-        }else{
-            openedCards.splice(0,2);
         }
     }
 }
-    
+function closeCards(i){
+    if(getCards[i].getAttribute("class")=="card open show" && openedCards.length==2){
+        openShow(getCards,i);
+    }
+}
+
+
+
+
 // if(cardOne.getAttribute("class")==cardTwo.getAttribute("class")){
 // 	openShow(openedCards, 0);
 //     openShow(openedCards, 1);
@@ -121,8 +127,8 @@ function checkMatch(){
    
 // event listeners
 
-document.onload = flipCards(); // adds open show event listner when page loads
 
+document.onload = flipCards() //adds open show event listner when page loads
 
 
 
