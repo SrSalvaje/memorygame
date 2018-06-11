@@ -94,11 +94,15 @@ function pushToArray(i){
     }   
 }
 
-// function checkMatch(){
-//     if(openedCards[0]==openedCards[1]){
-
-//     }
-// }
+function checkMatch(){
+    if(openedCards.length==2 && openedCards[0]==openedCards[1]){
+        openedCards[0].classList.togle("match");
+        openedCards[1].classList.toggle("match");
+        openedCards.splice(0,2);
+    }else if (openedCards.length==2){
+        openedCards.splice(0,2);
+    }
+}
 
 // event listeners
 
