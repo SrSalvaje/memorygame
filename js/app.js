@@ -77,16 +77,17 @@ let openedCards=[
 function flipCards(){ //adds event listener to display cards on click
     for(let i=0; i<getCards.length; i++){
         getCards[i].addEventListener("click", function(){
-            openShow(i);
+            openShow(getCards, i);
             pushToArray(i);
+            checkMatch();
         });
         
     }
 }
 
-function openShow(i){
-    getCards[i].classList.toggle("open");
-    getCards[i].classList.toggle("show");
+function openShow(element, i){
+    element[i].classList.toggle("open");
+    element[i].classList.toggle("show");
 }
 function pushToArray(i){
     if(getCards[i].getAttribute("class")=="card open show"){
@@ -95,15 +96,29 @@ function pushToArray(i){
 }
 
 function checkMatch(){
-    if(openedCards.length==2 && openedCards[0]==openedCards[1]){
-        openedCards[0].classList.togle("match");
-        openedCards[1].classList.toggle("match");
-        openedCards.splice(0,2);
-    }else if (openedCards.length==2){
-        openedCards.splice(0,2);
+    if(openedCards.length==2){
+        let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class");
+        let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
+        if(cardOne==cardTwo){
+            for(let i=0;i<openedCards.length;i++){
+                openShow(openedCards, i);
+                openedCards[i].classList.toggle("match");
+            }
+            openedCards.splice(0,2);
+        }else{
+            openedCards.splice(0,2);
+        }
     }
 }
-
+    
+// if(cardOne.getAttribute("class")==cardTwo.getAttribute("class")){
+// 	openShow(openedCards, 0);
+//     openShow(openedCards, 1);
+//     openedCards[0].classList.toggle("match");
+//     openedCards[1].classList.toggle("match");
+// }
+    
+   
 // event listeners
 
 document.onload = flipCards(); // adds open show event listner when page loads
