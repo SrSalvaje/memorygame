@@ -74,25 +74,35 @@ let openedCards=[
 
 //functions
 
-function openShow(){ //adds event listener to display cards on click
+function flipCards(){ //adds event listener to display cards on click
     for(let i=0; i<getCards.length; i++){
         getCards[i].addEventListener("click", function(){
-            this.classList.toggle("open"); //adds open class on clicl
-            this.classList.toggle("show"); //adds show class on click
+            openShow(i);
             pushToArray(i);
         });
         
     }
+}
+
+function openShow(i){
+    getCards[i].classList.toggle("open");
+    getCards[i].classList.toggle("show");
 }
 function pushToArray(i){
     if(getCards[i].getAttribute("class")=="card open show"){
         openedCards.push(getCards[i]);
     }   
 }
-    
+
+// function checkMatch(){
+//     if(openedCards[0]==openedCards[1]){
+
+//     }
+// }
+
 // event listeners
 
-document.onload = openShow(); // adds open show event listner when page loads
+document.onload = flipCards(); // adds open show event listner when page loads
 
 
 
