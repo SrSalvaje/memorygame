@@ -1,10 +1,3 @@
-/*
-*
-*
-this section builds a random deck when page loads and when repeat is clciked
-*
-*
-*/ 
 
 //access the DOM Elements and declares the variables needed to build deck 
 let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
@@ -17,11 +10,24 @@ let getDeck = document.getElementsByClassName("deck"); //gets a NodeList with th
 let useDeck = getDeck[0]; // access the ul from the NodeList
 let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
 let repeat = document.querySelector(".fa-repeat"); // gets the repeat icon
+let getCards=useDeck.getElementsByClassName("card");
+let openedCards=[ //array to check for match
+]
+let matchedCards=[ //array to store matched cards
+]
+
+
 
 /*
-*functions
 *
-*/
+*
+Functions 
+*
+*
+*/ 
+
+//this section builds a random deck when page loads and when repeat is clciked
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -44,111 +50,64 @@ function buildDeck(){
     }
 }
 /*
+this section deals with flipping cards
+*/
+
+function flipCards(e) { //function called from the event listener, first condition keeps the event from being trigered by parent, second one keeps user from turning more than 2 cards
+    if (e.target !== e.currentTarget && openedCards.length<2) {
+        let clickedItem = e.target;
+        openShow(clickedItem); //flips card
+        pushToArray(clickedItem); //pushes to array used to check for match
+        if(openedCards.length==2){ //if the array has two cards
+            checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
+            setTimeout(function(){//if its not a match, wait 1 sec and then clear the cards 
+                notMatch()}, 1000);
+        }
+    }
+    e.stopPropagation();
+}
+function openShow(x){ //adds/removes the open and show classes
+    x.classList.toggle("open");
+    x.classList.toggle("show");
+}
+function pushToArray(x){ //it adds opened cars to an empty array
+    if(x.getAttribute("class")=="card open show"){ 
+        openedCards.push(x); //pushes to array
+    }   
+}
+function checkMatch(){ //checks the array that holds the opened cards for match
+    let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
+    let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
+    if(cardOne==cardTwo){ //checks if they have the same class
+        for(let i=0;i<openedCards.length;i++){ //if they do, it adds the match class
+            openedCards[i].classList.toggle("match");
+            matchedCards.push(openedCards[i]); //pushes the cards to an array with matched cards
+        }
+        openedCards.splice(0,2); //clears the array
+    }
+}
+function notMatch(){
+    for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
+        openedCards[i].classList.toggle("open");
+        openedCards[i].classList.toggle("show");
+    }
+    openedCards.splice(0,2); //clears the array
+}
+/*
 *
-event listeners
+*
+// event listeners
+*
 *
 */
+
+useDeck.addEventListener("click", flipCards, false);
 // builds deck on page load
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
 repeat.addEventListener("click", function(){
     buildDeck();
 });
-
-
-/*
-*
-*
-this section deals with flipping cards
-*
-*
-*/
-
-
-//variables and DOM elements
-
-
-let getCards=useDeck.getElementsByClassName("card");
-let openedCards=[
-]
-
-//functions
-
-
-
-
-
-useDeck.addEventListener("click", flipCards, false);
-
-function flipCards(e) { //function called from the event listener
-    if (e.target !== e.currentTarget) {
-        let clickedItem = e.target;
-        openShow(clickedItem);
-        pushToArray();
-        checkMatch();
-
-    }
-    e.stopPropagation();
-}
-
-function openShow(x){ //adds/removes the open and show classes
-    x.classList.toggle("open");
-    x.classList.toggle("show");
-}
-
-function pushToArray(){ //it adds opened cars to an empty array
-    for(let i=0;i<getCards.length;i++){
-        if(getCards[i].getAttribute("class")=="card open show"){ //checks which cards are opened
-            openedCards.push(getCards[i]); //pushes to array
-        }   
-    }
-}
-
-function checkMatch(){ //checks the array that holds the opened cards for match
-    if(openedCards.length==2){
-        let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
-        let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
-        if(cardOne==cardTwo){ //checks if they have the same class
-            for(let i=0;i<openedCards.length;i++){ //if they do, it adds the match class
-                openedCards[i].classList.toggle("match");
-            }
-        }
-    }
-}
-function closeCards(i){
-    if(getCards[i].getAttribute("class")=="card open show" && openedCards.length==2){
-        openShow(getCards,i);
-    }
-}
-
-
-
-
-// if(cardOne.getAttribute("class")==cardTwo.getAttribute("class")){
-// 	openShow(openedCards, 0);
-//     openShow(openedCards, 1);
-//     openedCards[0].classList.toggle("match");
-//     openedCards[1].classList.toggle("match");
-// }
-    
-   
-// event listeners
-
-
-document.onload = flipCards() //adds open show event listner when page loads
-
-
-
-// 
-
-
- 
-
-
-
-
-
-
 /*
  * set up the event listener for a card. If a card is clicked:
  * 
