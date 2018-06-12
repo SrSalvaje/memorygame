@@ -80,10 +80,13 @@ let openedCards=[
 
 useDeck.addEventListener("click", flipCards, false);
 
-function flipCards(e) {
+function flipCards(e) { //function called from the event listener
     if (e.target !== e.currentTarget) {
         let clickedItem = e.target;
         openShow(clickedItem);
+        pushToArray();
+        checkMatch();
+
     }
     e.stopPropagation();
 }
@@ -93,29 +96,12 @@ function openShow(x){ //adds/removes the open and show classes
     x.classList.toggle("show");
 }
 
-
-    
-    
-    
-    
-//     //adds event listener to display cards on click
-//     for(let i=0; i<getCards.length; i++){
-//         getCards[i].addEventListener("click", function(){
-//             openShow(getCards, i);
-//             pushToArray(i);
-//             checkMatch();
-//             closeCards(i);
-//             // openedCards.splice(0,openedCards.length); //clears cards from the opened card array
-
-//         });
-//     }
-// }
-
-
-function pushToArray(i){ //it adds opened cars to an empty array
-    if(getCards[i].getAttribute("class")=="card open show"){ //checks that cards are opened
-        openedCards.push(getCards[i]); //pushes to array
-    }   
+function pushToArray(){ //it adds opened cars to an empty array
+    for(let i=0;i<getCards.length;i++){
+        if(getCards[i].getAttribute("class")=="card open show"){ //checks which cards are opened
+            openedCards.push(getCards[i]); //pushes to array
+        }   
+    }
 }
 
 function checkMatch(){ //checks the array that holds the opened cards for match
