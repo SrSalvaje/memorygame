@@ -74,23 +74,44 @@ let openedCards=[
 
 //functions
 
-function flipCards(){ //adds event listener to display cards on click
-    for(let i=0; i<getCards.length; i++){
-        getCards[i].addEventListener("click", function(){
-            openShow(getCards, i);
-            pushToArray(i);
-            checkMatch();
-            closeCards(i);
-            // openedCards.splice(0,openedCards.length); //clears cards from the opened card array
 
-        });
+
+
+
+useDeck.addEventListener("click", flipCards, false);
+
+function flipCards(e) {
+    if (e.target !== e.currentTarget) {
+        let clickedItem = e.target;
+        openShow(clickedItem);
     }
+    e.stopPropagation();
 }
 
-function openShow(element, i){ //adds/removes the open and show classes, it takes the name of Dom element you want to apply it to and the index of the loop needed to iterate
-    element[i].classList.toggle("open");
-    element[i].classList.toggle("show");
+function openShow(x){ //adds/removes the open and show classes
+    x.classList.toggle("open");
+    x.classList.toggle("show");
 }
+
+
+    
+    
+    
+    
+//     //adds event listener to display cards on click
+//     for(let i=0; i<getCards.length; i++){
+//         getCards[i].addEventListener("click", function(){
+//             openShow(getCards, i);
+//             pushToArray(i);
+//             checkMatch();
+//             closeCards(i);
+//             // openedCards.splice(0,openedCards.length); //clears cards from the opened card array
+
+//         });
+//     }
+// }
+
+
 function pushToArray(i){ //it adds opened cars to an empty array
     if(getCards[i].getAttribute("class")=="card open show"){ //checks that cards are opened
         openedCards.push(getCards[i]); //pushes to array
