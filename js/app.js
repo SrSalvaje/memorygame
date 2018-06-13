@@ -1,5 +1,6 @@
 
-//access the DOM Elements and declares the variables needed to build deck 
+//access the DOM Elements and declares the variables
+
 let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor","fa fa-bolt",
     "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle",
@@ -16,17 +17,13 @@ let openedCards=[ //array to check for match
 let matchedCards=[ //array to store matched cards
 ]
 
-
-
 /*
-*
-*
 Functions 
-*
-*
 */ 
 
-//this section builds a random deck when page loads and when repeat is clciked
+/*
+this section builds a random deck when page loads and when repeat is clciked
+*/
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -53,29 +50,34 @@ function buildDeck(){
 this section deals with flipping cards
 */
 
-function flipCards(e) { //function called from the event listener, first condition keeps the event from being trigered by parent, second one keeps user from turning more than 2 cards
-    if (e.target !== e.currentTarget && openedCards.length<2) {
-        let clickedItem = e.target;
+function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation 
+    if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
+        let clickedItem = e.target; //gets the event target
         openShow(clickedItem); //flips card
-        pushToArray(clickedItem); //pushes to array used to check for match
+        pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){ //if the array has two cards
             checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
-            setTimeout(function(){//if its not a match, wait 1 sec and then clear the cards 
+            setTimeout(function(){//if its not a match, wait 1 sec and then clear the cards (consider decreasing time)
                 notMatch()}, 1000);
         }
     }
-    e.stopPropagation();
+    e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
-function openShow(x){ //adds/removes the open and show classes
-    x.classList.toggle("open");
-    x.classList.toggle("show");
+
+function openShow(clickedItem){ //adds/removes the open and show classes
+    clickedItem.classList.toggle("open");
+    clickedItem.classList.toggle("show");
 }
-function pushToArray(x){ //it adds opened cars to an empty array
-    if(x.getAttribute("class")=="card open show"){ 
-        openedCards.push(x); //pushes to array
+function pushToArray(clickedItem){ //it adds opened cards to an empty array
+    if(clickedItem.getAttribute("class")=="card open show"){ 
+        openedCards.push(clickedItem); //pushes to given array array
     }   
 }
-function checkMatch(){ //checks the array that holds the opened cards for match
+/*
+checks for match
+*/
+
+function checkMatch(){ //checks the array that holds the opened cards for a match
     let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
     let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
     if(cardOne==cardTwo){ //checks if they have the same class
@@ -86,6 +88,7 @@ function checkMatch(){ //checks the array that holds the opened cards for match
         openedCards.splice(0,2); //clears the array
     }
 }
+
 function notMatch(){
     for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
         openedCards[i].classList.toggle("open");
@@ -94,13 +97,9 @@ function notMatch(){
     openedCards.splice(0,2); //clears the array
 }
 /*
-*
-*
-// event listeners
-*
-*
+ event listeners
 */
-
+//event listener for cards
 useDeck.addEventListener("click", flipCards, false);
 // builds deck on page load
 document.onload = buildDeck(); 
@@ -108,14 +107,15 @@ document.onload = buildDeck();
 repeat.addEventListener("click", function(){
     buildDeck();
 });
-/*
- * set up the event listener for a card. If a card is clicked:
+
+/*To Do:
+ *
  * 
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ *  
+ *    + increment the move counter and display it on the page 
+ *    + if all cards have matched, display a message with the final score 
+ *    + make responsive
+ *    + add flipping animations
+ *    + add a timer
+ *    
  */
