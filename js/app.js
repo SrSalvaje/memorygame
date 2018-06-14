@@ -60,6 +60,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
             setTimeout(function(){//if its not a match, wait 1 sec and then clear the cards (consider decreasing time)
                 notMatch()}, 1000);
         }
+
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
@@ -67,9 +68,10 @@ function flipCards(e) { //function called from the event listener, it uses the e
 function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("open");
     clickedItem.classList.toggle("show");
+    clickedItem.classList.toggle("stopClick");
 }
 function pushToArray(clickedItem){ //it adds opened cards to an empty array
-    if(clickedItem.getAttribute("class")=="card open show"){ 
+    if(clickedItem.getAttribute("class")=="card open show stopClick"){ 
         openedCards.push(clickedItem); //pushes to given array array
     }   
 }
@@ -93,6 +95,8 @@ function notMatch(){
     for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
         openedCards[i].classList.toggle("open");
         openedCards[i].classList.toggle("show");
+        openedCards[i].classList.toggle("stopClick");
+
     }
     openedCards.splice(0,2); //clears the array
 }

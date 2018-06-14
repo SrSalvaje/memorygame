@@ -80,6 +80,9 @@ h1 {
     background: #02ccba;
     font-size: 33px;
 }
+.stopClick{
+    pointer-events: none;
+}
 
 /*
  * Styles for the Score Panel
