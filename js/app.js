@@ -62,8 +62,13 @@ function flipCards(e) { //function called from the event listener, it uses the e
         }
 
     }
+    // else if(e.target !== e.currentTarget && openedCards.length<2 && !!!how can I listen for my event listener??!!){
+
+    // }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
+
+
 
 function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("open");
@@ -104,7 +109,7 @@ function notMatch(){
  event listeners
 */
 //event listener for cards
-useDeck.addEventListener("click", flipCards, false);
+let clickEvent = useDeck.addEventListener("click", flipCards, false);
 // builds deck on page load
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
