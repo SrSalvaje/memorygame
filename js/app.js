@@ -92,8 +92,11 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
             openedCards[i].classList.toggle("match");
             matchedCards.push(openedCards[i]); //pushes the cards to an array with matched cards
         }
-        openedCards.splice(0,2); //clears the array
     }
+}
+
+function clearOCArray(){
+    openedCards.splice(0,2); //clears the array
 }
 
 function notMatch(){
