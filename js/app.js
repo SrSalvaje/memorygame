@@ -57,16 +57,16 @@ function flipCards(e) { //function called from the event listener, it uses the e
         pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){ //if the array has two cards
             checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
-            setTimeout(function(){//if its not a match, wait 1 sec and then clear the cards (consider decreasing time)
-                notMatch()}, 1000);
+            setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
+                closeCards()}, 1000);
+        }else if(openedCards.length==2 && e.target !== e.currentTarget){
+            closeCards();
+            openShow();
         }
-
     }
-    // else if(e.target !== e.currentTarget && openedCards.length<2 && !!!how can I listen for my event listener??!!){
-
-    // }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
+
 
 
 
@@ -99,7 +99,7 @@ function clearOCArray(){
     openedCards.splice(0,2); //clears the array
 }
 
-function notMatch(){
+function closeCards(){
     for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
         openedCards[i].classList.toggle("open");
         openedCards[i].classList.toggle("show");
