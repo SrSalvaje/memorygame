@@ -113,7 +113,7 @@ function closeCards(){
  event listeners
 */
 //event listener for cards
-let clickEvent = useDeck.addEventListener("click", aFunctionToRuleAllFunctions, false);
+useDeck.addEventListener("click", flipCards, false);
 // builds deck on page load
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
