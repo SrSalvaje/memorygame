@@ -85,6 +85,7 @@ function pushToArray(clickedItem){ //it adds opened cards to an empty array
 /*
 checks for match
 */
+
 function checkMatch(){ //checks the array that holds the opened cards for a match
     let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
     let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
