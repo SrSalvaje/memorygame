@@ -131,3 +131,4 @@ repeat.addEventListener("click", function(){
  *    + add a timer
  *    
  */
+//what am I doing wrong?
