@@ -50,7 +50,8 @@ function buildDeck(){
 this section deals with flipping cards
 */
 
-function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation 
+function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
+    let mytime; 
     if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
         let clickedItem = e.target; //gets the event target
         openShow(clickedItem); //flips card
@@ -68,7 +69,10 @@ function flipCards(e) { //function called from the event listener, it uses the e
 }
 
 
-
+function timeOut(){
+    setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
+    closeCards()}, 1000);
+}
 
 function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("open");
