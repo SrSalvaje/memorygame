@@ -49,9 +49,9 @@ function buildDeck(){
 /*
 this section deals with flipping cards
 */
-function aFunctionToRuleAllFunctions(e){
-    let clickedItem = e.target; //gets the event target 
-    if (e.target !== e.currentTarget && openedCards.length<2){
+function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
+    if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
+        let clickedItem = e.target; //gets the event target
         openShow(clickedItem); //flips card
         pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){
