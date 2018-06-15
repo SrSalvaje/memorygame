@@ -49,38 +49,21 @@ function buildDeck(){
 /*
 this section deals with flipping cards
 */
-// function aFunctionToRuleAllFunctions(e){
-//     let clickedItem = e.target; //gets the event target 
-//     if (e.target !== e.currentTarget && openedCards.length<2){
-//         openShow(clickedItem); //flips card
-//         pushToArray(clickedItem); //pushes to the array used to check for match
-//         if(openedCards.length==2){
-//             checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
-//             timeOut();
-//         }
-//     }else if(openedCards.length==2 && e.target !== e.currentTarget){
-//         closeCards();
-//         openShow(clickedItem);
-//     }
-//     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
-// }
 function aFunctionToRuleAllFunctions(e){
-    switch(){
-        case e.target !== e.currentTarget && openedCards.length<2:
+    let clickedItem = e.target; //gets the event target 
+    if (e.target !== e.currentTarget && openedCards.length<2){
         openShow(clickedItem); //flips card
         pushToArray(clickedItem); //pushes to the array used to check for match
-        
-        case openedCards.length==2:
-        checkMatch();
-        timeOut();
-
-        case openedCards.length==2 && e.target !== e.currentTarget:
+        if(openedCards.length==2){
+            checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
+            timeOut();
+        }
+    }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
         openShow(clickedItem);
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
-
 
 
 function timeOut(){
