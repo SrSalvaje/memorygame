@@ -57,7 +57,6 @@ function flipCards(e) { //function called from the event listener, it uses the e
         if(openedCards.length==2){
             checkMatch(); // check if its a match, if it is, send cards to a new array             
             timeOut();
-            clearArray(); 
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
@@ -107,6 +106,7 @@ function closeCards(){
         openedCards[i].classList.toggle("show");
         openedCards[i].classList.toggle("stopClick");
     }
+    openedCards.splice(0,2); //clears the array
 }
 /*
  event listeners
