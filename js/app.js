@@ -55,8 +55,9 @@ function aFunctionToRuleAllFunctions(e){
         openShow(clickedItem); //flips card
         pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){
-            checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
+            checkMatch(); // check if its a match, if it is, send cards to a new array             
             timeOut();
+            clearArray(); 
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
@@ -105,7 +106,6 @@ function closeCards(){
         openedCards[i].classList.toggle("open");
         openedCards[i].classList.toggle("show");
         openedCards[i].classList.toggle("stopClick");
-
     }
 }
 /*
