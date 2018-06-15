@@ -58,8 +58,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
         pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){ //if the array has two cards
             checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
-            setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
-                closeCards()}, 1000);
+            timeOut();
         }else if(openedCards.length==2 && e.target !== e.currentTarget){
             closeCards();
             openShow();
