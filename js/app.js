@@ -96,7 +96,7 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
     }
 }
 
-function clearOCArray(){
+function clearArray(){
     openedCards.splice(0,2); //clears the array
 }
 
@@ -107,7 +107,6 @@ function closeCards(){
         openedCards[i].classList.toggle("stopClick");
 
     }
-    openedCards.splice(0,2); //clears the array
 }
 /*
  event listeners
