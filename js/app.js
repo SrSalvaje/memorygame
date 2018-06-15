@@ -112,7 +112,13 @@ function closeCards(){
  event listeners
 */
 //event listener for cards
+<<<<<<< HEAD
 useDeck.addEventListener("click", aFunctionToRuleAllFunctions, false);
+||||||| merged common ancestors
+let clickEvent = useDeck.addEventListener("click", aFunctionToRuleAllFunctions, false);
+=======
+useDeck.addEventListener("click", flipCards, false);
+>>>>>>> master
 // builds deck on page load
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
