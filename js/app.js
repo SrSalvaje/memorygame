@@ -49,20 +49,18 @@ function buildDeck(){
 /*
 this section deals with flipping cards
 */
-
-function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
-    let mytime; 
-    if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
-        let clickedItem = e.target; //gets the event target
+function aFunctionToRuleAllFunctions(e){
+    let clickedItem = e.target; //gets the event target 
+    if (e.target !== e.currentTarget && openedCards.length<2){
         openShow(clickedItem); //flips card
         pushToArray(clickedItem); //pushes to the array used to check for match
-        if(openedCards.length==2){ //if the array has two cards
+        if(openedCards.length==2){
             checkMatch(); // check if its a match, if it is, send cards to a new array, clear the previous array 
             timeOut();
-        }else if(openedCards.length==2 && e.target !== e.currentTarget){
-            closeCards();
-            openShow();
         }
+    }else if(openedCards.length==2 && e.target !== e.currentTarget){
+        closeCards();
+        openShow(clickedItem);
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
@@ -70,7 +68,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
 
 function timeOut(){
     setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
-    closeCards()}, 1000);
+    closeCards()}, 1500);
 }
 
 function openShow(clickedItem){ //adds/removes the open and show classes
@@ -115,7 +113,7 @@ function closeCards(){
  event listeners
 */
 //event listener for cards
-let clickEvent = useDeck.addEventListener("click", flipCards, false);
+let clickEvent = useDeck.addEventListener("click", aFunctionToRuleAllFunctions, false);
 // builds deck on page load
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
