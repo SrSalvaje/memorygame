@@ -68,7 +68,7 @@ function aFunctionToRuleAllFunctions(e){
 
 function timeOut(){
     setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
-    closeCards()}, 1500);
+    closeCards()}, 1000);
 }
 
 function openShow(clickedItem){ //adds/removes the open and show classes
