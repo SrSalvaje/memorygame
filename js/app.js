@@ -16,7 +16,7 @@ let openedCards=[ //array to check for match
 ]
 let matchedCards=[ //array to store matched cards
 ]
-let myTimeOut;
+let myTimeOut; 
 /*
 Functions 
 */ 
@@ -41,6 +41,14 @@ function shuffle(array) {
 // builds a random card deck
 function buildDeck(){
     let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
+    if(matchedCards.length>0){
+        closeCards(matchedCards);
+        clearArray(matchedCards);
+    } else if(openedCards.length>0){
+        stopTimeout(myTimeOut);
+        closeCards(openedCards);
+        clearArray(openedCards);
+    }
     for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
         let modifyListItem = getListItems[i]; //takes one i element based on index
         modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
@@ -61,8 +69,8 @@ function flipCards(e) { //function called from the event listener, it uses the e
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         stopTimeout(); //clears the timeout
-        closeCards(); //closes the opened cards
-        clearArray();//clears the opened cards arra//
+        closeCards(openedCards); //closes the opened cards
+        clearArray(openedCards);//clears the opened cards arra//
         openShow(e.target);//opens the clicked card
         pushToArray(e.target);//pushes the clicked card to the openedCards[]
     }
@@ -71,7 +79,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
 // wait 1 sec and then clear the cards (consider decreasing time)
 function timeOut(){
     myTimeOut = setTimeout(function(){
-        closeCards()}, 1000);
+        closeCards(openedCards)}, 1000);
     return myTimeOut;
 }
 //stops the timeout
@@ -102,15 +110,15 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
     }
 }
 //clears the array
-function clearArray(){
-    openedCards.splice(0,2); //clears the array
+function clearArray(arrayName){
+    arrayName.splice(0,2); //clears the array
 }
 //closes cards
-function closeCards(){
-    for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
-        openedCards[i].classList.toggle("open");
-        openedCards[i].classList.toggle("show");
-        openedCards[i].classList.toggle("stopClick");
+function closeCards(arrayName){
+    for(let i=0;i<arrayName.length;i++){ //if they don't it removes the open and show classes
+        arrayName[i].classList.toggle("open");
+        arrayName[i].classList.toggle("show");
+        arrayName[i].classList.toggle("stopClick");
     }
 }
 
