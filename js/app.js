@@ -50,18 +50,15 @@ function buildDeck(){
 this section deals with flipping cards
 */
 function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
-    let turnCounter=0
-    , clickedItem
-    , start
-    , usedFirstClick
-    , usedSecondClick; 
-    if (e.target !== e.currentTarget && turnCounter==0) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
-        startsGame();
-    }else if(e.target !== e.currentTarget && openedCards.length<2 && turnCounter>0){
-        firstClick();
-    }else if(e.target !== e.currentTarget && openedCards.length==2){
-        secondClick();
-    }else if(openedCards.length==2 && e.target !== e.currentTarget && secondClick==true){
+    if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
+        let clickedItem = e.target; //gets the event target
+        openShow(clickedItem); //flips card
+        pushToArray(clickedItem); //pushes to the array used to check for match
+        if(openedCards.length==2){
+            checkMatch(); // check if its a match, if it is, send cards to a new array             
+            timeOut();
+        }
+    }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
         openShow(clickedItem);
     }
@@ -113,27 +110,14 @@ function closeCards(){
 }
 
 function startsGame(){
-    let clickedItem = e.target; //gets the event target
-    let start = true;
-    openShow(clickedItem); //flips card
-    pushToArray(clickedItem); //pushes to the array used to check for match
-    turnCounter++
-    return start, clickedItem, turnCounter;
+
 }
 function firstClick(){
-    let usedFirstClick = true;
-    openShow(clickedItem); //flips card
-    pushToArray(clickedItem); //pushes to the array used to check for match
-    turnCounter++
-    return usedFirstClick, turnCounter;
+
 }
 
 function secondClick() {
-    let usedSecondClick = true
-    checkMatch(); // check if its a match, if it is, send cards to a new array             
-    timeOut();
-    turnCounter++
-    return turnCounter;
+
 }
 /*
  event listeners
