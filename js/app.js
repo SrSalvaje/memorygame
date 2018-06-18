@@ -60,7 +60,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
-        openShow(clickedItem);
+        openShow(e.target);
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
@@ -106,19 +106,8 @@ function closeCards(){
         openedCards[i].classList.toggle("show");
         openedCards[i].classList.toggle("stopClick");
     }
-    openedCards.splice(0,2); //clears the array
 }
 
-function startsGame(){
-
-}
-function firstClick(){
-
-}
-
-function secondClick() {
-
-}
 /*
  event listeners
 */
