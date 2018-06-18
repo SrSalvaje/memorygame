@@ -60,7 +60,9 @@ function flipCards(e) { //function called from the event listener, it uses the e
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         closeCards();
+        clearArray();
         openShow(e.target);
+        pushToArray(e.target);
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
