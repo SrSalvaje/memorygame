@@ -108,6 +108,17 @@ function closeCards(){
     }
     openedCards.splice(0,2); //clears the array
 }
+
+function startsGame(){
+
+}
+function firstClick(){
+
+}
+
+function secondClick() {
+
+}
 /*
  event listeners
 */
