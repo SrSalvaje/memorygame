@@ -116,10 +116,16 @@ function clearArray(arrayName){
 }
 //closes cards
 function closeCards(arrayName){
-    for(let i=0;i<arrayName.length;i++){ //if they don't it removes the open and show classes
-        arrayName[i].classList.toggle("open");
-        arrayName[i].classList.toggle("show");
-        arrayName[i].classList.toggle("stopClick");
+    if(arrayName[0].getAttribute("class")=="card match"){
+        for(let i=0;i<arrayName.length;i++){ 
+            arrayName[i].classList.toggle("match");
+        }
+    }else{
+        for(let i=0;i<arrayName.length;i++){ //if they don't it removes the open and show classes
+            arrayName[i].classList.toggle("open");
+            arrayName[i].classList.toggle("show");
+            arrayName[i].classList.toggle("stopClick");
+        }
     }
 }
 
