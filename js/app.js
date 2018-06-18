@@ -16,7 +16,8 @@ let openedCards=[ //array to check for match
 ]
 let matchedCards=[ //array to store matched cards
 ]
-let myTimeOut; 
+let myTimeOut;
+let counter=0; 
 /*
 Functions 
 */ 
@@ -89,6 +90,7 @@ function stopTimeout(){
 }
 //opens cards
 function openShow(clickedItem){ //adds/removes the open and show classes
+    counter++;
     clickedItem.classList.toggle("open");
     clickedItem.classList.toggle("show");
     clickedItem.classList.toggle("stopClick");
@@ -128,6 +130,10 @@ function closeCards(arrayName){
         }
     }
 }
+/*
+*this sections deals with the move counter
+*/
+
 
 /*
  event listeners
