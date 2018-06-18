@@ -79,7 +79,8 @@ function flipCards(e) { //function called from the event listener, it uses the e
 // wait 1 sec and then clear the cards (consider decreasing time)
 function timeOut(){
     myTimeOut = setTimeout(function(){
-        closeCards(openedCards)}, 1000);
+        closeCards(openedCards)
+        clearArray(openedCards)}, 1000);
     return myTimeOut;
 }
 //stops the timeout
