@@ -17,7 +17,8 @@ let openedCards=[ //array to check for match
 let matchedCards=[ //array to store matched cards
 ]
 let myTimeOut;
-let counter=0; 
+let counter=0;
+let moveC= document.querySelector(".moves");
 /*
 Functions 
 */ 
@@ -54,6 +55,8 @@ function buildDeck(){
         let modifyListItem = getListItems[i]; //takes one i element based on index
         modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
     }
+    moveC.innerHTML=0; //Resets counter
+    counter=0;
 }
 /*
 this section deals with flipping cards
@@ -94,6 +97,8 @@ function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("open");
     clickedItem.classList.toggle("show");
     clickedItem.classList.toggle("stopClick");
+    moveC.innerHTML=counter;
+    // return moveC;
 }
 // pushes opend card to array
 function pushToArray(clickedItem){ //it adds opened cards to an empty array
