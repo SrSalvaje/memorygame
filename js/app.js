@@ -16,7 +16,7 @@ let openedCards=[ //array to check for match
 ]
 let matchedCards=[ //array to store matched cards
 ]
-
+let myTimeOut;
 /*
 Functions 
 */ 
@@ -56,37 +56,41 @@ function flipCards(e) { //function called from the event listener, it uses the e
         pushToArray(clickedItem); //pushes to the array used to check for match
         if(openedCards.length==2){
             checkMatch(); // check if its a match, if it is, send cards to a new array             
-            timeOut();
+            timeOut(); //sets a 1000 mms timer to close opened cards
+            return timeOut; //returns setTimeout() to be able to use clearTimeOut()
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
-        closeCards();
-        clearArray();
-        openShow(e.target);
-        pushToArray(e.target);
+        stopTimeout(); //clears the timeout
+        closeCards(); //closes the opened cards
+        clearArray();//clears the opened cards arra//
+        openShow(e.target);//opens the clicked card
+        pushToArray(e.target);//pushes the clicked card to the openedCards[]
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
-
-
+// wait 1 sec and then clear the cards (consider decreasing time)
 function timeOut(){
-    setTimeout(function(){// wait 1 sec and then clear the cards (consider decreasing time)
-    closeCards()}, 1000);
+    myTimeOut = setTimeout(function(){
+        closeCards()}, 1000);
+    return myTimeOut;
 }
-
+//stops the timeout
+function stopTimeout(){
+    clearTimeout(myTimeOut)
+}
+//opens cards
 function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("open");
     clickedItem.classList.toggle("show");
     clickedItem.classList.toggle("stopClick");
 }
+// pushes opend card to array
 function pushToArray(clickedItem){ //it adds opened cards to an empty array
     if(clickedItem.getAttribute("class")=="card open show stopClick"){ 
         openedCards.push(clickedItem); //pushes to given array array
     }   
 }
-/*
-checks for match
-*/
-
+//checks for match
 function checkMatch(){ //checks the array that holds the opened cards for a match
     let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
     let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
@@ -97,11 +101,11 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
         }
     }
 }
-
+//clears the array
 function clearArray(){
     openedCards.splice(0,2); //clears the array
 }
-
+//closes cards
 function closeCards(){
     for(let i=0;i<openedCards.length;i++){ //if they don't it removes the open and show classes
         openedCards[i].classList.toggle("open");
