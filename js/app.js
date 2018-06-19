@@ -145,11 +145,11 @@ function toggleModal() {
     modal.classList.toggle("show-modal");
 }
 
-function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
-}
+// function windowOnClick(event) {
+//     if (event.target === modal) {
+//         toggleModal();
+//     }
+// }
 
 function victory(){
     if(matchedCards.length==16){
@@ -158,7 +158,7 @@ function victory(){
 }
 
 closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+// window.addEventListener("click", windowOnClick);
 
 
 
