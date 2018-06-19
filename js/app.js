@@ -98,7 +98,6 @@ function openShow(clickedItem){ //adds/removes the open and show classes
     clickedItem.classList.toggle("show");
     clickedItem.classList.toggle("stopClick");
     moveC.innerHTML=counter;
-    // return moveC;
 }
 // pushes opend card to array
 function pushToArray(clickedItem){ //it adds opened cards to an empty array
@@ -115,6 +114,7 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
             openedCards[i].classList.toggle("match");
             matchedCards.push(openedCards[i]); //pushes the cards to an array with matched cards
         }
+        victory();
     }
 }
 //clears the array
@@ -136,8 +136,31 @@ function closeCards(arrayName){
     }
 }
 /*
-*this sections deals with the move counter
+*this sections deals with the modal window
 */
+let modal = document.querySelector(".modal");
+let closeButton = document.querySelector(".close-modal");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+function victory(){
+    if(matchedCards.length==16){
+        toggleModal()
+    }
+}
+
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+
 
 
 /*
@@ -156,7 +179,7 @@ repeat.addEventListener("click", function(){
  *
  * 
  *  
- *    + increment the move counter and display it on the page 
+ *  
  *    + if all cards have matched, display a message with the final score 
  *    + make responsive
  *    + add flipping animations
