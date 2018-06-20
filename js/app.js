@@ -163,9 +163,15 @@ function toggleModal() { //toggles the class that appluies the modal window styl
 function victory(){
     if(matchedCards.length==16){ //checks if all cards have been matched
         stopGameTimer(); //stops timer
+        showScore();
         toggleModal()//launches modal window
     }
 }
+let scores = document.querySelector(".score-panel");
+let modalContent = document.querySelector(".modal-text");
+function showScore(){
+    modalContent.innerHTML=`Your rating is ${document.querySelector(".score-panel").outerHTML}`;
+} 
 /*
 *this section deals with the timer and stars score
 */
