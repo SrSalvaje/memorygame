@@ -26,6 +26,10 @@ let tSeconds=document.querySelector(".seconds");
 let minTimer=0;
 let secTimer=0;
 let secInterval;
+let stars=document.querySelectorAll(".fa-star");
+let starOne=stars[0];
+let starTwo=stars[1];
+let starThree=stars[2];
 /*
 Functions 
 */ 
@@ -163,16 +167,26 @@ function victory(){
     }
 }
 /*
-*this section deals with the timer
+*this section deals with the timer and stars score
 */
 function gameTimer(){
     secInterval=setInterval(function(){ //stores the setinterval value to use it for clearInterval
         secTimer++;//increments the counter by 1
-        tSeconds.innerHTML=secTimer;//updates the time html with the current value of secTimer
-        if(secTimer==59){ //if the seconds reach 59
+        if(secTimer<9){
+            tSeconds.innerHTML=`0${secTimer}`;//updates the time html with the current value of secTimer
+        }else{
+            tSeconds.innerHTML=secTimer;
+        }
+        if(secTimer==31){
+            starThree.classList.toggle("starsOn");
+        }else if(secTimer==45){
+            starTwo.classList.toggle("starsOn");
+        }else if(secTimer==59){ //if the seconds reach 59
             secTimer=0; //it resets the seconds counter
+            tSeconds.innerHTML=secTimer; //modifies rhe HTML
             minTimer++;//increments the minute counter
-            tMinutes.innerHTML=minTimer; //modifies the html 
+            tMinutes.innerHTML=`0${minTimer}`; //modifies the html
+            starOne.classList.toggle("starsOn"); 
         }
     }, 1000);//the code repeats every second
 }
@@ -180,6 +194,9 @@ function gameTimer(){
 function stopGameTimer(){
     clearInterval(secInterval); //it stops the interval
 }
+/*
+*this section deals with stars
+*/
 /*
  event listeners
 */

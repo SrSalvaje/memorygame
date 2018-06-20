@@ -105,7 +105,9 @@ h1 {
     list-style: none;
     display: inline-block;
 }
-
+.starsOn{
+    color: gold;
+}
 .score-panel .restart {
     float: right;
     cursor: pointer;
@@ -113,6 +115,7 @@ h1 {
 .moves{
     margin-left: 15%;
 }
+
 /*
 *styles for the modal window
 */
