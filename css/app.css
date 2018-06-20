@@ -110,6 +110,9 @@ h1 {
     float: right;
     cursor: pointer;
 }
+.moves{
+    margin-left: 15%;
+}
 /*
 *styles for the modal window
 */
@@ -157,3 +160,9 @@ h1 {
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
+/*
+*styles for timer
+*/
+.timer{
+    margin-left: 15%;
+}
