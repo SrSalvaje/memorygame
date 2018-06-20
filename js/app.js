@@ -19,6 +19,8 @@ let matchedCards=[ //array to store matched cards
 let myTimeOut;
 let counter=0;
 let moveC= document.querySelector(".moves");
+let modal = document.querySelector(".modal");
+let closeButton = document.querySelector(".close-modal");
 /*
 Functions 
 */ 
@@ -138,30 +140,29 @@ function closeCards(arrayName){
 /*
 *this sections deals with the modal window
 */
-let modal = document.querySelector(".modal");
-let closeButton = document.querySelector(".close-modal");
-
 function toggleModal() {
     modal.classList.toggle("show-modal");
 }
-
-// function windowOnClick(event) {
-//     if (event.target === modal) {
-//         toggleModal();
-//     }
-// }
 
 function victory(){
     if(matchedCards.length==16){
         toggleModal()
     }
 }
+/*
+*this section deals with the timer
+*/
+let tMinutes= document.querySelector(".minutes");
+let tSeconds=document.querySelector(".seconds");
 
-closeButton.addEventListener("click", toggleModal);
-// window.addEventListener("click", windowOnClick);
+let myInterval;
+function countUp(){
+    myInterval=setInterval(function(){
+        count=0
+    })
 
 
-
+}
 
 /*
  event listeners
@@ -174,7 +175,7 @@ document.onload = buildDeck();
 repeat.addEventListener("click", function(){
     buildDeck();
 });
-
+closeButton.addEventListener("click", toggleModal);
 /*To Do:
  *
  * 
