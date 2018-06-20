@@ -152,17 +152,23 @@ function victory(){
 /*
 *this section deals with the timer
 */
-let tMinutes= document.querySelector(".minutes").innerHTML;
+let tMinutes= document.querySelector(".minutes");
 let tSeconds=document.querySelector(".seconds");
 let minTimer=0;
 let secTimer=0;
 let minInterval;
 let secInterval;
 
-function secCount(){
+function gameTimer(){
     secInterval=setInterval(function(){
         secTimer++;
         tSeconds.innerHTML=secTimer;
+        if(secTimer==59){
+            secTimer=0;
+            minTimer++;
+            tMinutes.innerHTML=minTimer;
+            return secTimer;
+        }
     }, 1000);
 }
 
