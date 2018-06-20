@@ -156,7 +156,6 @@ let tMinutes= document.querySelector(".minutes");
 let tSeconds=document.querySelector(".seconds");
 let minTimer=0;
 let secTimer=0;
-let minInterval;
 let secInterval;
 
 function gameTimer(){
@@ -167,11 +166,13 @@ function gameTimer(){
             secTimer=0;
             minTimer++;
             tMinutes.innerHTML=minTimer;
-            return secTimer;
         }
     }, 1000);
 }
 
+function stopGameTimer(){
+    clearInterval(secInterval)
+}
 /*
  event listeners
 */
