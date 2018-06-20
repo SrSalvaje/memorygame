@@ -152,16 +152,18 @@ function victory(){
 /*
 *this section deals with the timer
 */
-let tMinutes= document.querySelector(".minutes");
+let tMinutes= document.querySelector(".minutes").innerHTML;
 let tSeconds=document.querySelector(".seconds");
+let minTimer=0;
+let secTimer=0;
+let minInterval;
+let secInterval;
 
-let myInterval;
-function countUp(){
-    myInterval=setInterval(function(){
-        count=0
-    })
-
-
+function secCount(){
+    secInterval=setInterval(function(){
+        secTimer++;
+        tSeconds.innerHTML=secTimer;
+    }, 1000);
 }
 
 /*
