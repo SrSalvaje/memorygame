@@ -54,21 +54,25 @@ function shuffle(array) {
 // builds a random card deck
 function buildDeck(){
     let symbolsShuffle = shuffle(cardSymbols); // shuffles symbol list
-    if(matchedCards.length>0){
-        closeCards(matchedCards);
-        clearArray(matchedCards);
-    } else if(openedCards.length>0){
-        stopTimeout(myTimeOut);
-        closeCards(openedCards);
-        clearArray(openedCards);
-    }
     for (let i = 0; i<cardSymbols.length; i++){ //iterates through the 16 symbols held in the array
         let modifyListItem = getListItems[i]; //takes one i element based on index
         modifyListItem.className = symbolsShuffle[i]; //changes the class of the i element to one taken from the shuffled array
     }
-    moveC.innerHTML=0; //Resets counter
-    counter=0;
 }
+/*
+*this section deals with the restart button
+*/
+
+// if(matchedCards.length>0){
+//     closeCards(matchedCards);
+//     clearArray(matchedCards);
+// } else if(openedCards.length>0){
+//     stopTimeout(myTimeOut);
+//     closeCards(openedCards);
+//     clearArray(openedCards);
+// }
+// moveC.innerHTML=0; //Resets counter
+//     counter=0;
 /*
 this section deals with flipping cards
 */
