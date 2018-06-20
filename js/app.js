@@ -21,6 +21,11 @@ let counter=0;
 let moveC= document.querySelector(".moves");
 let modal = document.querySelector(".modal");
 let closeButton = document.querySelector(".close-modal");
+let tMinutes= document.querySelector(".minutes");
+let tSeconds=document.querySelector(".seconds");
+let minTimer=0;
+let secTimer=0;
+let secInterval;
 /*
 Functions 
 */ 
@@ -64,6 +69,9 @@ function buildDeck(){
 this section deals with flipping cards
 */
 function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
+    if(counter==0){
+        gameTimer();
+    }; 
     if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
         let clickedItem = e.target; //gets the event target
         openShow(clickedItem); //flips card
@@ -116,7 +124,7 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
             openedCards[i].classList.toggle("match");
             matchedCards.push(openedCards[i]); //pushes the cards to an array with matched cards
         }
-        victory();
+        victory(); //asses the victory condition and if they apply it stops timer and calls modal window (add here the code to update modal window with score)
     }
 }
 //clears the array
@@ -125,11 +133,11 @@ function clearArray(arrayName){
 }
 //closes cards
 function closeCards(arrayName){
-    if(arrayName[0].getAttribute("class")=="card match"){
-        for(let i=0;i<arrayName.length;i++){ 
+    if(arrayName[0].getAttribute("class")=="card match"){ //checks if its being used for the matched cards array
+        for(let i=0;i<arrayName.length;i++){ //if it is, it removes the match class
             arrayName[i].classList.toggle("match");
         }
-    }else{
+    }else{//if its not being used for matched cards then its being used for the opened cards array
         for(let i=0;i<arrayName.length;i++){ //if they don't it removes the open and show classes
             arrayName[i].classList.toggle("open");
             arrayName[i].classList.toggle("show");
@@ -140,38 +148,37 @@ function closeCards(arrayName){
 /*
 *this sections deals with the modal window
 */
-function toggleModal() {
+function toggleModal() { //toggles the class that appluies the modal window style
     modal.classList.toggle("show-modal");
+
 }
+/*
+*this section deals with the victorry coinditions
+*/
 
 function victory(){
-    if(matchedCards.length==16){
-        toggleModal()
+    if(matchedCards.length==16){ //checks if all cards have been matched
+        stopGameTimer(); //stops timer
+        toggleModal()//launches modal window
     }
 }
 /*
 *this section deals with the timer
 */
-let tMinutes= document.querySelector(".minutes");
-let tSeconds=document.querySelector(".seconds");
-let minTimer=0;
-let secTimer=0;
-let secInterval;
-
 function gameTimer(){
-    secInterval=setInterval(function(){
-        secTimer++;
-        tSeconds.innerHTML=secTimer;
-        if(secTimer==59){
-            secTimer=0;
-            minTimer++;
-            tMinutes.innerHTML=minTimer;
+    secInterval=setInterval(function(){ //stores the setinterval value to use it for clearInterval
+        secTimer++;//increments the counter by 1
+        tSeconds.innerHTML=secTimer;//updates the time html with the current value of secTimer
+        if(secTimer==59){ //if the seconds reach 59
+            secTimer=0; //it resets the seconds counter
+            minTimer++;//increments the minute counter
+            tMinutes.innerHTML=minTimer; //modifies the html 
         }
-    }, 1000);
+    }, 1000);//the code repeats every second
 }
 
 function stopGameTimer(){
-    clearInterval(secInterval)
+    clearInterval(secInterval); //it stops the interval
 }
 /*
  event listeners
@@ -184,16 +191,18 @@ document.onload = buildDeck();
 repeat.addEventListener("click", function(){
     buildDeck();
 });
+//closes the modal window when the close button is clicked
 closeButton.addEventListener("click", toggleModal);
 /*To Do:
  *
  * 
  *  
  *  
- *    + if all cards have matched, display a message with the final score 
- *    + make responsive
+ *    + sort out star rating
  *    + add flipping animations
- *    + add a timer
+ *   
+ *    +write code to update modal window with score 
+ *    + make responsive
+ *    
  *    
  */
-//what am I doing wrong?
