@@ -220,8 +220,7 @@ closeButton.addEventListener("click", toggleModal);
  *
  * 
  *  
- *  
- *    + sort out star rating
+ *      + debug restart
  *    + add flipping animations
  *   
  *    +write code to update modal window with score 
