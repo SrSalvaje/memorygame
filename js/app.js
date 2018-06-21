@@ -192,10 +192,14 @@ function victory(){
         toggleModal()//launches modal window (line 178)
     }
 }
+let starsScore = document.querySelector(".stars-score")
 
 function showScore(){
-    modalContent.innerHTML=`Your rating is ${document.querySelector(".score-panel").outerHTML}`;
+    starsScore.innerHTML=`${starOne.outerHTML} ${starTwo.outerHTML} ${starThree.outerHTML}`;
 } 
+// let scores = document.querySelector(".score-panel");
+// let modalContent = document.querySelector(".modal-text");
+
 /*
 *this section deals with the timer and stars score
 */
@@ -244,7 +248,7 @@ closeButton.addEventListener("click", toggleModal);
  *
  * 
  *  
- *      + debug restart
+ *      
  *    + add flipping animations
  *   
  *    +write code to update modal window with score 
