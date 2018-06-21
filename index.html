@@ -9,29 +9,31 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header-cont flex">
+    <div class="container-grid">
+        <div class="header-grid">
             <header class="header">
                 <h1>Matching Game</h1>
             </header>
         </div>
-        <section class="score-panel flex">
-            <div class="stars-container flex">
+        <section class="score-grid">
+            <div class="stars-column">
                 <ul class="stars">
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                 </ul>
             </div>
-            <div class="moves-time flex">
+            <div class="moves-column">
                 <span class="moves">0</span> Moves
+            </div>
+            <div class="timer-column">
                 <span class="timer"><span class="minutes">00</span>:<span class="seconds">00</span></span>
             </div>
-            <div class="restart flex">
+            <div class="restart-column">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
-        <section class="deck-container flex">
+        <section class="deck-grid">
             <ul class="deck">
                 <li class="card">
                     <i class="fa fa-diamond"></i>
