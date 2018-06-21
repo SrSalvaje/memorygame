@@ -62,6 +62,19 @@ function buildDeck(){
 /*
 *this section deals with the restart button
 */
+function clearScore(){
+    secTimer=0;
+    counter=0;
+    tMinutes.innerHTML="00";
+    tSeconds.innerHTML="00";
+    moveC.innerHTML=0;
+    for(let i=0; i<stars.length;i++){
+        if(stars[i].getAttribute("class")=="fa fa-star"){
+            stars[i].classList.toggle("starsOn");
+        }
+    }
+}
+
 
 // if(matchedCards.length>0){
 //     closeCards(matchedCards);
