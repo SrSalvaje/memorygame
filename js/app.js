@@ -66,10 +66,10 @@ function restart(){
     stopGameTimer();
     clearScore();
     if(matchedCards.length>0){
-        resetCards(matchedCards);
+        resetCards(matchedCards, matchedCards.length);
     }
     if(openedCards.length>0){
-        resetCards(openedCards);
+        resetCards(openedCards, openedCards.length);
     }
     buildDeck(); 
 }
@@ -87,9 +87,9 @@ function clearScore(){
     }
 }
 
-function resetCards(array){
+function resetCards(array, cardsToErase){
     closeCards(array);
-    clearArray(array);
+    clearArray(array, cardsToErase);
 }
 
 
@@ -122,7 +122,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
         stopTimeout(); //clears the timeout
         closeCards(openedCards); //closes the opened cards
-        clearArray(openedCards);//clears the opened cards arra//
+        clearArray(openedCards, openedCards.length);//clears the opened cards arra//
         openShow(e.target);//opens the clicked card
         pushToArray(e.target);//pushes the clicked card to the openedCards[]
     }
@@ -132,7 +132,7 @@ function flipCards(e) { //function called from the event listener, it uses the e
 function timeOut(){
     myTimeOut = setTimeout(function(){
         closeCards(openedCards)
-        clearArray(openedCards)}, 1000);
+        clearArray(openedCards, openedCards.length)}, 1000);
     return myTimeOut;
 }
 //stops the timeout
@@ -166,8 +166,8 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
     }
 }
 //clears the array
-function clearArray(arrayName){
-    arrayName.splice(0,2); //clears the array
+function clearArray(arrayName, cardsToErase){
+    arrayName.splice(0, cardsToErase); //clears the array
 }
 //closes cards
 function closeCards(arrayName){
@@ -246,7 +246,7 @@ useDeck.addEventListener("click", flipCards, false);
 document.onload = buildDeck(); 
 // builds deck when repeat is clicked
 repeat.addEventListener("click", function(){
-    buildDeck();
+    restart();
 });
 //closes the modal window when the close button is clicked
 closeButton.addEventListener("click", toggleModal);
