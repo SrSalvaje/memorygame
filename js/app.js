@@ -30,6 +30,8 @@ let stars=document.querySelectorAll(".fa-star");
 let starOne=stars[0];
 let starTwo=stars[1];
 let starThree=stars[2];
+let scores = document.querySelector(".score-panel");
+let modalContent = document.querySelector(".modal-text");
 /*
 Functions 
 */ 
@@ -62,18 +64,18 @@ function buildDeck(){
 /*
 *this section deals with the restart button
 */
-function restart(){
-    stopGameTimer();
-    clearScore();
+function restart(){ //function called when restart is clicked
+    stopGameTimer();//stops game timer (see line 222)
+    clearScore(); //clear all the score and time counters (line 77)
     if(matchedCards.length>0){
-        resetCards(matchedCards, matchedCards.length);
+        resetCards(matchedCards, matchedCards.length);//resets the matchedCards[](line 90)
     }
     if(openedCards.length>0){
-        resetCards(openedCards, openedCards.length);
+        resetCards(openedCards, openedCards.length);// resets the openedCards[](line 90)
     }
-    buildDeck(); 
+    buildDeck(); //builds the deck (line 55)
 }
-
+//clears score and timer
 function clearScore(){
     secTimer=0;
     counter=0;
@@ -86,53 +88,42 @@ function clearScore(){
         }
     }
 }
-
+//splices the given array by the number of cards indicated
 function resetCards(array, cardsToErase){
     closeCards(array);
     clearArray(array, cardsToErase);
 }
-
-
-// if(matchedCards.length>0){
-//     closeCards(matchedCards);
-//     clearArray(matchedCards);
-// } else if(openedCards.length>0){
-//     stopTimeout(myTimeOut);
-//     closeCards(openedCards);
-//     clearArray(openedCards);
-// }
-// moveC.innerHTML=0; //Resets counter
-//     counter=0;
 /*
 this section deals with flipping cards
 */
-function flipCards(e) { //function called from the event listener, it uses the event object to leverage event delegation
+//function called from the event listener, it uses the event object to leverage event delegation
+function flipCards(e) { 
     if(counter==0){
-        gameTimer();
+        gameTimer();//starts the game timer (line 201)
     }; 
     if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
         let clickedItem = e.target; //gets the event target
-        openShow(clickedItem); //flips card
-        pushToArray(clickedItem); //pushes to the array used to check for match
+        openShow(clickedItem); //flips cards (line 132)
+        pushToArray(clickedItem); //pushes to the array used to check for match (line 140)
         if(openedCards.length==2){
-            checkMatch(); // check if its a match, if it is, send cards to a new array             
-            timeOut(); //sets a 1000 mms timer to close opened cards
+            checkMatch(); // check if its a match, if it is, send cards to a new array (line 146)           
+            timeOut(); //sets a 1000 mms timer to close opened cards (line 121)
             return timeOut; //returns setTimeout() to be able to use clearTimeOut()
         }
     }else if(openedCards.length==2 && e.target !== e.currentTarget){
-        stopTimeout(); //clears the timeout
-        closeCards(openedCards); //closes the opened cards
-        clearArray(openedCards, openedCards.length);//clears the opened cards arra//
-        openShow(e.target);//opens the clicked card
-        pushToArray(e.target);//pushes the clicked card to the openedCards[]
+        stopTimeout(); //clears the timeout (line 128)
+        closeCards(openedCards); //closes the opened cards (line 162)
+        clearArray(openedCards, openedCards.length);//clears the opened cards array (line 158)
+        openShow(e.target);//opens the clicked card (line 132)
+        pushToArray(e.target);//pushes the clicked card to the openedCards[](line 140)
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
 // wait 1 sec and then clear the cards (consider decreasing time)
 function timeOut(){
     myTimeOut = setTimeout(function(){
-        closeCards(openedCards)
-        clearArray(openedCards, openedCards.length)}, 1000);
+        closeCards(openedCards)//(line 162)
+        clearArray(openedCards, openedCards.length)}, 1000);//(line 158)
     return myTimeOut;
 }
 //stops the timeout
@@ -162,7 +153,7 @@ function checkMatch(){ //checks the array that holds the opened cards for a matc
             openedCards[i].classList.toggle("match");
             matchedCards.push(openedCards[i]); //pushes the cards to an array with matched cards
         }
-        victory(); //asses the victory condition and if they apply it stops timer and calls modal window (add here the code to update modal window with score)
+        victory(); //asses the victory condition and if they apply it stops timer and calls modal window(line 186)
     }
 }
 //clears the array
@@ -196,13 +187,12 @@ function toggleModal() { //toggles the class that appluies the modal window styl
 
 function victory(){
     if(matchedCards.length==16){ //checks if all cards have been matched
-        stopGameTimer(); //stops timer
-        showScore();
-        toggleModal()//launches modal window
+        stopGameTimer(); //stops timer (line 223)
+        showScore();//adds score to modal window (line 194)
+        toggleModal()//launches modal window (line 178)
     }
 }
-let scores = document.querySelector(".score-panel");
-let modalContent = document.querySelector(".modal-text");
+
 function showScore(){
     modalContent.innerHTML=`Your rating is ${document.querySelector(".score-panel").outerHTML}`;
 } 
