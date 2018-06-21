@@ -10,20 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="flex">
+        <div class="header flex">
             <header>
                 <h1>Matching Game</h1>
             </header>
         </div>
         <section class="score-panel flex">
-            <div class="flex">
+            <div class="stars-container flex">
                 <ul class="stars">
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                 </ul>
             </div>
-            <div class="flex">
+            <div class="moves-time flex">
                 <span class="moves">0</span> Moves
                 <span class="timer"><span class="minutes">00</span>:<span class="seconds">00</span></span>
             </div>
@@ -31,7 +31,7 @@
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
-        <section class="flex">
+        <section class="deck-container flex">
             <ul class="deck">
                 <li class="card">
                     <i class="fa fa-diamond"></i>
@@ -85,17 +85,17 @@
         </section>
         <div class="modal">
             <div class="mo-content flex">
-                <div class="flex">
+                <div class="x-button flex">
                     <span class="close-modal">&times;</span>
                 </div>
-                <div class="flex">
+                <div class="m-title-cont flex">
                     <h1 class="modal-title">Congratulations!</h1>
                 </div>
-                <div class="flex">
+                <div class="score-cont flex">
                     <p class="modal-text">Your rating is: <span class="stars-score"></span> and it took you: <span class="min-complete"></span> 
                     minutes and <span class="sec-complete"></span> seconds to finish!<br></p>
                 </div>
-                <div class="flex">
+                <div class="play-button flex">
                 <button class="play-again">Play Again!</button>
                 </div>
             </div>
