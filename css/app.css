@@ -54,57 +54,89 @@
 }
 
 /*deck*/
-#deck-grid{
+.deck-grid{
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
+    grid-gap:5px
 }
 #card1{
-
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 #card2{
+    grid-column-start: 2;
+    grid-row-start: 1;
     
 }
 #card3{
+    grid-column-start: 3;
+    grid-row-start: 1;
     
 }
 #card4{
+    grid-column-start: 4;
+    grid-row-start: 1;
     
 }
 #card5{
+    grid-column-start: 1;
+    grid-row-start: 2;
     
 }
 #card6{
+    grid-column-start: 2;
+    grid-row-start: 2;
     
 }
 #card7{
+    grid-column-start: 3;
+    grid-row-start: 2;
     
 }
 #card8{
+    grid-column-start: 4;
+    grid-row-start: 2;
     
 }
 #card9{
+    grid-column-start: 1;
+    grid-row-start: 3;
     
 }
 #card10{
+    grid-column-start: 2;
+    grid-row-start: 3;
     
 }
 #card11{
+    grid-column-start: 3;
+    grid-row-start: 3;
     
 }
 #card12{
+    grid-column-start: 4;
+    grid-row-start: 3;
     
 }
 #card13{
+    grid-column-start: 1;
+    grid-row-start: 4;
     
 }
 #card14{
+    grid-column-start: 2;
+    grid-row-start: 4;
     
 }
 #card15{
+    grid-column-start: 3;
+    grid-row-start: 4;
     
 }
 #card16{
+    grid-column-start: 4;
+    grid-row-start: 4;
     
 }
 html {
@@ -130,23 +162,9 @@ body {
     font-family: 'Coda', cursive;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-direction: column; */
-    flex-wrap: wrap;
-    width:100%;
-}
-
-.flex{
-    display:flex;
-    flex-wrap:wrap;
-}
 
 .score-panel{
     width:100%;
-
 }
 .stars-container{
     width:30%;
@@ -171,20 +189,15 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 100%; 
+    min-height: 100%;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
 }
 
-.deck .card {
+ .card {
     height: 125px;
     width: 125px;
     background: #2e3d49;
@@ -224,7 +237,7 @@ h1 {
 .score-panel {
     text-align: left;
     width: 345px;
-    margin-bottom: 10px;
+    
 }
 
 .score-panel .stars {
@@ -246,7 +259,12 @@ h1 {
     cursor: pointer;
 }
 .moves{
-    margin-left: 15%;
+}
+
+/*
+*styles for timer
+*/
+.timer{
 }
 
 /*
@@ -296,9 +314,3 @@ h1 {
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-/*
-*styles for timer
-*/
-.timer{
-    margin-left: 15%;
-}
