@@ -10,28 +10,28 @@
 </head>
 <body>
     <div class="container">
-        <div>
+        <div class="flex">
             <header>
                 <h1>Matching Game</h1>
             </header>
         </div>
-        <section class="score-panel">
-            <div>
+        <section class="score-panel flex">
+            <div class="flex">
                 <ul class="stars">
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                     <li><i class="fa fa-star starsOn"></i></li>
                 </ul>
             </div>
-            <div>
+            <div class="flex">
                 <span class="moves">0</span> Moves
                 <span class="timer"><span class="minutes">00</span>:<span class="seconds">00</span></span>
             </div>
-            <div class="restart">
+            <div class="restart flex">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
-        <section>
+        <section class="flex">
             <ul class="deck">
                 <li class="card">
                     <i class="fa fa-diamond"></i>
@@ -84,18 +84,18 @@
             </ul>
         </section>
         <div class="modal">
-            <div class="mo-content">
-                <div>
+            <div class="mo-content flex">
+                <div class="flex">
                     <span class="close-modal">&times;</span>
                 </div>
-                <div>
+                <div class="flex">
                     <h1 class="modal-title">Congratulations!</h1>
                 </div>
-                <div>
+                <div class="flex">
                     <p class="modal-text">Your rating is: <span class="stars-score"></span> and it took you: <span class="min-complete"></span> 
                     minutes and <span class="sec-complete"></span> seconds to finish!<br></p>
                 </div>
-                <div>
+                <div class="flex">
                 <button class="play-again">Play Again!</button>
                 </div>
             </div>
