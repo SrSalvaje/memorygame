@@ -25,7 +25,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.flex{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.header-cont{
+    width:100%;
+
+}
+.header{
+
+}
+
+.score-panel{
+    width:100%;
+
+}
+.stars-container{
+    width:30%;
+}
+.moves-time{
+    width:55%;
+}
+.restart{
+    width:15%;
+}
+.deck-container{
+    width:100%;
 }
 
 h1 {
@@ -126,7 +158,7 @@ h1 {
     width: 100%;
     height: 100%;
     background-color: linear-gradient(to right, #009fff, #ec2f4b);
-    opacity: 0.5;
+    opacity: 0;
     visibility: hidden;
     transform: scale(1.1);
 }
