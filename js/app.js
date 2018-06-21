@@ -62,6 +62,18 @@ function buildDeck(){
 /*
 *this section deals with the restart button
 */
+function restart(){
+    stopGameTimer();
+    clearScore();
+    if(matchedCards.length>0){
+        resetCards(matchedCards);
+    }
+    if(openedCards.length>0){
+        resetCards(openedCards);
+    }
+    buildDeck(); 
+}
+
 function clearScore(){
     secTimer=0;
     counter=0;
@@ -73,6 +85,11 @@ function clearScore(){
             stars[i].classList.toggle("starsOn");
         }
     }
+}
+
+function resetCards(array){
+    closeCards(array);
+    clearArray(array);
 }
 
 
