@@ -35,7 +35,7 @@ let modalContent = document.querySelector(".modal-text");
 let starsScore = document.querySelector(".stars-score");
 let minComplete= document.querySelector(".min-complete");
 let secComplete= document.querySelector(".sec-complete");
-/*
+let playAgain = document.querySelector(".play-again");/*
 Functions 
 */ 
 
@@ -191,7 +191,7 @@ function toggleModal() { //toggles the class that appluies the modal window styl
 function victory(){
     if(matchedCards.length==16){ //checks if all cards have been matched
         stopGameTimer(); //stops timer (line 223)
-        showScore();//adds score to modal window (line 194)
+        showScore();//adds score to modal window (line 198)
         toggleModal()//launches modal window (line 178)
     }
 }
@@ -200,9 +200,13 @@ function showScore(){
     minComplete.innerHTML=`${tMinutes.innerHTML}`;
     secComplete.innerHTML=`${tSeconds.innerHTML}`;
 } 
-// let scores = document.querySelector(".score-panel");
-// let modalContent = document.querySelector(".modal-text");
-
+/*
+*this section deals with the play again button
+*/
+function replay(){
+    toggleModal();
+    restart();
+}
 /*
 *this section deals with the timer and stars score
 */
@@ -245,6 +249,10 @@ document.onload = buildDeck();
 repeat.addEventListener("click", function(){
     restart();
 });
+//restarts game from modal window
+playAgain.addEventListener("click", function(){
+    replay();
+})
 //closes the modal window when the close button is clicked
 closeButton.addEventListener("click", toggleModal);
 /*To Do:
