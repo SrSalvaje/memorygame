@@ -1,7 +1,7 @@
 /*grid*/
 .container-grid{
     display: grid;
-    grid-template-columns: 35% 30% 35%;
+    grid-template-columns: 30% 40% 30%;
     grid-template-rows: 10% 10% 70% 10%
 }
 .header-grid-position{
@@ -58,7 +58,6 @@
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
-    grid-gap:5px
 }
 #card1{
     grid-column-start: 1;
@@ -143,12 +142,6 @@ html {
     box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
 html,
 body {
     width: 100%;
@@ -162,23 +155,6 @@ body {
     font-family: 'Coda', cursive;
 }
 
-
-.score-panel{
-    width:100%;
-}
-.stars-container{
-    width:30%;
-}
-.moves-time{
-    width:55%;
-}
-.restart{
-    width:15%;
-}
-.deck-container{
-    width:100%;
-}
-
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -189,14 +165,21 @@ h1 {
  */
 
 .deck {
-    width: 100%; 
-    min-height: 100%;
+    width:640px;
+    height:640px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    align-self: center;
+    justify-self: center;
 }
 
+li.card{
+  align-self: center;
+  justify-self: center;
+
+}
  .card {
     height: 125px;
     width: 125px;
@@ -234,30 +217,22 @@ h1 {
  * Styles for the Score Panel
  */
 
-.score-panel {
-    text-align: left;
-    width: 345px;
-    
-}
-
-.score-panel .stars {
+.stars {
     margin: 0;
     padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.stars li {
     list-style: none;
     display: inline-block;
 }
 .starsOn{
     color: gold;
 }
-.score-panel .restart {
-    float: right;
+ .fa-repeat {
     cursor: pointer;
 }
+
 .moves{
 }
 
