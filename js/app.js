@@ -32,6 +32,9 @@ let starTwo=stars[1];
 let starThree=stars[2];
 let scores = document.querySelector(".score-panel");
 let modalContent = document.querySelector(".modal-text");
+let starsScore = document.querySelector(".stars-score");
+let minComplete= document.querySelector(".min-complete");
+let secComplete= document.querySelector(".sec-complete");
 /*
 Functions 
 */ 
@@ -192,10 +195,10 @@ function victory(){
         toggleModal()//launches modal window (line 178)
     }
 }
-let starsScore = document.querySelector(".stars-score")
-
 function showScore(){
     starsScore.innerHTML=`${starOne.outerHTML} ${starTwo.outerHTML} ${starThree.outerHTML}`;
+    minComplete.innerHTML=`${tMinutes.innerHTML}`;
+    secComplete.innerHTML=`${tSeconds.innerHTML}`;
 } 
 // let scores = document.querySelector(".score-panel");
 // let modalContent = document.querySelector(".modal-text");
