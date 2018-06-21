@@ -24,19 +24,21 @@
     grid-template-rows: 100%;
 }
 .stars-column{
-
-
+    grid-column-start: 2;
+    grid-column-end:3;
 }
 .moves-column{
-
+    grid-column-start: 3;
+    grid-column-end:4;
 }
 .timer-column{
-
+    grid-column-start: 4;
+    grid-column-end:5;
 }
 .restart-column{
-
+    grid-column-start: 5;
+    grid-column-end:6;
 }
-
 
 /*deck*/
 #deck-grid{
