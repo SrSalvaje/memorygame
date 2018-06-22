@@ -80,6 +80,7 @@ function restart(){ //function called when restart is clicked
 }
 //clears score and timer
 function clearScore(){
+    minTimer=0;
     secTimer=0;
     counter=0;
     tMinutes.innerHTML="00";
@@ -218,11 +219,11 @@ function gameTimer(){
         }else{
             tSeconds.innerHTML=secTimer;
         }
-        if(secTimer==31){
+        if(secTimer==31 && minTimer==0){
             starThree.classList.toggle("starsOn");
-        }else if(secTimer==45){
+        }else if(secTimer==45 && minTimer==0){
             starTwo.classList.toggle("starsOn");
-        }else if(secTimer==59){ //if the seconds reach 59
+        }else if(secTimer==59 && minTimer==0){ //if the seconds reach 59
             secTimer=0; //it resets the seconds counter
             tSeconds.innerHTML=secTimer; //modifies rhe HTML
             minTimer++;//increments the minute counter
@@ -235,13 +236,12 @@ function gameTimer(){
 function stopGameTimer(){
     clearInterval(secInterval); //it stops the interval
 }
+
 /*
-*this section deals with stars
+ *event listeners
 */
-/*
- event listeners
-*/
-//event listener for cards
+
+// for cards
 useDeck.addEventListener("click", flipCards, false);
 // builds deck on page load
 document.onload = buildDeck(); 
