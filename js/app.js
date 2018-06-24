@@ -214,7 +214,7 @@ function replay(){
 function gameTimer(){
     secInterval=setInterval(function(){ //stores the setinterval value to use it for clearInterval
         secTimer++;//increments the counter by 1
-        if(secTimer<9){
+        if(secTimer<=9){
             tSeconds.innerHTML=`0${secTimer}`;//updates the time html with the current value of secTimer
         }else{
             tSeconds.innerHTML=secTimer;
@@ -223,12 +223,14 @@ function gameTimer(){
             starThree.classList.toggle("starsOn");
         }else if(secTimer==45 && minTimer==0){
             starTwo.classList.toggle("starsOn");
-        }else if(secTimer==59 && minTimer==0){ //if the seconds reach 59
+        }else if(secTimer==59){ //if the seconds reach 59
+            if(minTimer==0){
+                starOne.classList.toggle("starsOn"); 
+            }
             secTimer=0; //it resets the seconds counter
             tSeconds.innerHTML=secTimer; //modifies rhe HTML
             minTimer++;//increments the minute counter
             tMinutes.innerHTML=`0${minTimer}`; //modifies the html
-            starOne.classList.toggle("starsOn"); 
         }
     }, 1000);//the code repeats every second
 }
