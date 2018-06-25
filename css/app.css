@@ -363,6 +363,9 @@ li.card{
 }
 
 @media screen and (min-width:700px){
+    h1{
+        margin-bottom:20px;
+    }
     .timer-column, .stars-column, .moves-column,  .restart-column{
         font-size:42px;
         justify-self:right;
@@ -380,11 +383,15 @@ li.card{
         padding-right:100px;
     }
     li.card{
-        width:145px;
-        height:145px;
+        width:130px;
+        height:130px;
+    }
+    .deck-grid{
+        grid-gap:25px;
     }
     .container-grid{
-        grid-template-columns:  1fr 160px 160px 160px 160px 1fr ; 
+        grid-template-columns:  1fr 160px 160px 160px 160px 1fr ;
+       
     }
     .modal-title{
         font-size:55px;
@@ -397,4 +404,3 @@ li.card{
         max-height:395px;
     }
 }
-
