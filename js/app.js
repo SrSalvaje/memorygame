@@ -23,7 +23,7 @@ let modal = document.querySelector(".modal");
 let closeButton = document.querySelector(".close-modal");
 let tMinutes= document.querySelector(".minutes");
 let tSeconds=document.querySelector(".seconds");
-let minTimer=0;
+let minTimer=00;
 let secTimer=0;
 let secInterval;
 let stars=document.querySelectorAll(".fa-star");
@@ -228,7 +228,7 @@ function gameTimer(){
                 starOne.classList.toggle("starsOn"); 
             }
             secTimer=0; //it resets the seconds counter
-            tSeconds.innerHTML=secTimer; //modifies rhe HTML
+            tSeconds.innerHTML=`0${secTimer}`; //modifies rhe HTML
             minTimer++;//increments the minute counter
             tMinutes.innerHTML=`0${minTimer}`; //modifies the html
         }
