@@ -318,10 +318,10 @@ li.card{
 /* Media queries  */
 @media screen and (min-width:400px){
     .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:45px;
+        font-size:40px;
     }
     h1{
-        font-size:53px;
+        font-size:49px;
     }
     li.card{
         width:20vw;
