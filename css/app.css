@@ -14,6 +14,8 @@
     margin: 0px 0px 30px 0px;
 }
 .deck-grid-position{
+    align-self:center;
+    justify-self:center;
     grid-column-start: 2;
     grid-row-start: 3;
 
@@ -66,10 +68,12 @@
 
 /*deck*/
 .deck-grid{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
-    row-gap:15px;
+    align-self:center;
+    justify-self:center;
+    display:inline-grid;
+    grid-template-columns: repeat(auto-fit:25%);
+    grid-template-rows: repeat(auto-fit:25%);
+    grid-gap:20px;
 }
 #card1{
     grid-column-start: 1;
@@ -178,24 +182,20 @@ h1 {
  */
 
 .deck {
-    width:100%;
-    height:100%;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px 0px 32px 3px;
+    padding: 32px 32px 32px 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    align-self: center;
-    justify-self: center;
 }
 
 li.card{
   align-self: center;
   justify-self: center;
+  width:200px;
+  height:200px;
 
 }
  .card {
-    height: 200px;
-    width: 200px;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
