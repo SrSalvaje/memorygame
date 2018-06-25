@@ -316,25 +316,32 @@ li.card{
 }
 /* Media queries  */
 @media screen and (min-width:400px){
-    
+    .timer-column, .stars-column, .moves-column,  .restart-column{
+        font-size:45px;
+    }
+    h1{
+        font-size:53px;
+    }
+    li.card{
+        width:20vw;
+        height:20vw;
+    }
 }
 
 @media screen and (min-width:500px){
     .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:60px;
-        margin:0 0 50px;
+        font-size:30px;
     }
     .restart-column{
         grid-area:2/5/3/6
     }
     .moves-column{
         grid-area:2/3;
-        margin-left:30px;
-
+       
     }
     .timer-column{
         grid-area:2/4;
-        margin-left:30px;
     }
 
 }
+
