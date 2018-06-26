@@ -1,41 +1,41 @@
 
 //access the DOM Elements and declares the variables
 
-let cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
+const cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor","fa fa-bolt",
     "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle",
     "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb",
     "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube",
 ]
-let getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
-let useDeck = getDeck[0]; // access the ul from the NodeList
-let getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
-let repeat = document.querySelector(".fa-repeat"); // gets the repeat icon
-let getCards=useDeck.getElementsByClassName("card");
-let openedCards=[ //array to check for match
+const getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
+const useDeck = getDeck[0]; // access the ul from the NodeList
+const getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
+const repeat = document.querySelector(".fa-repeat"); // gets the repeat icon
+const getCards=useDeck.getElementsByClassName("card");
+const openedCards=[ //array to check for match
 ]
-let matchedCards=[ //array to store matched cards
+const matchedCards=[ //array to store matched cards
 ]
 let myTimeOut;
-let counter=0;
-let moveC= document.querySelector(".moves");
-let modal = document.querySelector(".modal");
-let closeButton = document.querySelector(".close-modal");
-let tMinutes= document.querySelector(".minutes");
-let tSeconds=document.querySelector(".seconds");
-let minTimer=00;
-let secTimer=0;
+const counter=0;
+const moveC= document.querySelector(".moves");
+const modal = document.querySelector(".modal");
+const closeButton = document.querySelector(".close-modal");
+const tMinutes= document.querySelector(".minutes");
+const tSeconds=document.querySelector(".seconds");
+const minTimer=00;
+const secTimer=0;
 let secInterval;
-let stars=document.querySelectorAll(".fa-star");
-let starOne=stars[0];
-let starTwo=stars[1];
-let starThree=stars[2];
-let scores = document.querySelector(".score-panel");
-let modalContent = document.querySelector(".modal-text");
-let starsScore = document.querySelector(".stars-score");
-let minComplete= document.querySelector(".min-complete");
-let secComplete= document.querySelector(".sec-complete");
-let playAgain = document.querySelector(".play-again");/*
+const stars=document.querySelectorAll(".fa-star");
+const starOne=stars[0];
+const starTwo=stars[1];
+const starThree=stars[2];
+const scores = document.querySelector(".score-panel");
+const modalContent = document.querySelector(".modal-text");
+const starsScore = document.querySelector(".stars-score");
+const minComplete= document.querySelector(".min-complete");
+const secComplete= document.querySelector(".sec-complete");
+const playAgain = document.querySelector(".play-again");/*/*
 Functions 
 */ 
 
