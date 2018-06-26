@@ -88,6 +88,10 @@ h1 {
  .fa-repeat {
     cursor: pointer;
 }
+.fa-repeat:hover{
+    font-size:40px;
+    color:red;
+}
 
 /*deck*/
 .deck-grid-position{
@@ -95,6 +99,8 @@ h1 {
     justify-self:center;
     grid-area:3/2/4/6
 }
+
+
 
 .deck-grid{
     align-self:center;
@@ -146,7 +152,7 @@ li.card{
 
 .match {
     cursor: default;
-   background: #02ccba;
+    background: #02ccba;
     font-size: 50px;
     transform:rotateY(180deg);
     animation:itsmatch 0.9s;
@@ -175,15 +181,15 @@ li.card{
     95%{background:linear-gradient(to right, #00ff0f 10%, #02ccba 40%);}
     100%{background:linear-gradient(to right, #02ccba 100%, #00ff0f 0%);}
 }
-
-.stopClick{
+/* keeps opened cards from being cliked while open */
+.stopClick{ 
     pointer-events: none;
 }
 
 /*
 *styles for the modal window
 */
-
+/* translucent background */
 .modal{
     position: fixed;
     left: 0;
@@ -195,11 +201,8 @@ li.card{
     transform: scale(1.1);
 }
 
-.modal-title{
-    font-size:40px;
 
-}
-
+/* where the content goes */
 .mo-content{
     display:grid;
     grid-template-columns:100%;
@@ -215,7 +218,11 @@ li.card{
     border-radius: 0.5rem;
     font-size:25px; 
 }
-
+/* h1 inside modal */
+.modal-title{
+    font-size:40px;
+}
+/* x to close window */
 .close-modal{
     float: right;
     width: 1.5rem;
@@ -223,26 +230,26 @@ li.card{
     text-align: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    font-size:50px;
+    font-size:40px;
 }
 
 .close-button:hover {
     background-color: darkgray;
 }
-
+/* position of heading in grid */
 .m-title-cont{
     grid-row-start:2;
     align-self:center;
     justify-self:center;
 }
-
+/* position of score in grid */
 .score-cont{
     grid-row-start:3;
     align-self:center;
     justify-self:center;
 
 }
-
+/* position of play again in grid */
 .play-button{
     grid-row-start:4;
     align-self:center;
@@ -253,7 +260,7 @@ li.card{
     font-size:40px;
     background:linear-gradient(to right, #02ccba1f 0%, #aa7ecd52 100%)
 }
-
+/* animation for modal */
 .show-modal {
     opacity: 1;
     visibility: visible;
@@ -261,9 +268,7 @@ li.card{
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-/*
-*animations
-*/
+
 .play-again:hover{
     background:linear-gradient(to right, #02ccba9c 0%, #aa7ecd9c 100%);
     color:white;
@@ -273,10 +278,6 @@ li.card{
     font-size:90px;
 }
 
-.fa-repeat:hover{
-    font-size:60px;
-    color:red;
-}
 
 /* Media queries  */
 @media screen and (min-width:400px){
