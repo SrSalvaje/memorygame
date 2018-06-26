@@ -1,5 +1,5 @@
 
-.container-grid{
+.container-grid {
     display: grid;
     grid-template-columns: 2% repeat(4, 24%) 2%;
     grid-template-rows: 20% 20% 60% 0%;
@@ -18,59 +18,62 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    background: #ffffff url(../img/geometry2.png); /* Background pattern from Subtle Patterns */
+    font-family: "Coda", cursive;
 }
 
 h1 {
-    font: 80 43px 'Open Sans', sans-serif;
+    font: 80 43px "Open Sans", sans-serif;
 }
 
 /*header*/
-.header-grid-position{
-    grid-area:1/2/2/6
+.header-grid-position {
+    grid-area: 1/2/2/6
 }
 
-.header-grid{
+.header-grid {
     display: grid;
-    grid-template-columns:5% 90% 5% ;
+    grid-template-columns: 5% 90% 5% ;
     grid-template-rows: 100%;
 }
 
-.header-column{
-    grid-area:2/2/3/6;
-    align-self:center;
-    justify-self:center;
+.header-column {
+    grid-area: 2/2/3/6;
+    align-self: center;
+    justify-self: center;
    
 
 }
 
 /*scores*/
-.stars-column, .moves-column, .timer-column, .restart-column{
-    font-size:30px;
+.stars-column, 
+.moves-column, 
+.timer-column, 
+.restart-column {
+    font-size: 30px;
     align-self: center;
     justify-self: center;
-    grid-gap:10px;
-    margin-bottom:10px;
+    grid-gap: 10px;
+    margin-bottom: 10px;
 }
 
-.stars-column{
-   grid-area:2/2/3/4;
-    justify-self:left;
+.stars-column {
+   grid-area: 2/2/3/4;
+    justify-self: left;
 
 }
-.moves-column{
-   grid-area:2/4/3/6;
-   justify-self:right;
+.moves-column {
+   grid-area: 2/4/3/6;
+   justify-self: right;
 
 }
 
-.timer-column{
-   grid-area:4/3/5/5;
+.timer-column {
+   grid-area: 4/3/5/5;
     
 }
-.restart-column{
-    grid-area:2/3/3/5;
+.restart-column {
+    grid-area: 2/3/3/5;
 }
 
 .stars {
@@ -88,27 +91,27 @@ h1 {
  .fa-repeat {
     cursor: pointer;
 }
-.fa-repeat:hover{
-    font-size:40px;
-    color:red;
+.fa-repeat:hover {
+    font-size: 40px;
+    color: red;
 }
 
 /*deck*/
-.deck-grid-position{
-    align-self:center;
-    justify-self:center;
-    grid-area:3/2/4/6
+.deck-grid-position {
+    align-self: center;
+    justify-self: center;
+    grid-area: 3/2/4/6
 }
 
 
 
-.deck-grid{
-    align-self:center;
-    justify-self:center;
-    display:grid;
+.deck-grid {
+    align-self: center;
+    justify-self: center;
+    display: grid;
     grid-auto-columns: repeat(4, 25%);
     grid-template-rows: repeat(4, 25%);
-    grid-gap:10px;
+    grid-gap: 10px;
     grid-auto-flow: column;
 }
 
@@ -119,14 +122,6 @@ h1 {
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-li.card{
-  align-self: center;
-  justify-self: center;
-  width:19vw;
-  height:19vw;
-  transition: transform 0.2s, background 0.2s, font-size 0.1s;
-    grid
-}
 
 .card {
     background: #2e3d49;
@@ -138,6 +133,11 @@ li.card{
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    align-self: center;
+    justify-self: center;
+    width: 19vw;
+    height: 19vw;
+    transition: transform 0.2s, background 0.2s, font-size 0.1s;
 }
 
 .open {
@@ -155,34 +155,34 @@ li.card{
     background: #02ccba;
     font-size: 50px;
     transform:rotateY(180deg);
-    animation:itsmatch 0.9s;
+    animation:its-match 0.9s;
 }
 
-@keyframes itsmatch{
-    0%{background:linear-gradient(to right,  #02ccba 100%, #00ff0f 50%) ;}
-    5%{background:linear-gradient(to right,  #02ccba 90%,  #00ff0f 40%);}
-    10%{background:linear-gradient(to right, #02ccba 80%, #00ff0f 30%);}
-    15%{background:linear-gradient(to right, #02ccba 70%, #00ff0f 20%);}
-    20%{background:linear-gradient(to right, #02ccbaf7 60%#00ff0f 10% );}
-    25%{background:linear-gradient(to right, #02ccba 50%, #00ff0f 0%);}
-    30%{background:linear-gradient(to right, #02ccba 40%, #00ff0f 10% );}
-    35%{background:linear-gradient(to right, #02ccba 30%, #00ff0f 20%);}
-    40%{background:linear-gradient(to right, #02ccba 20%, #00ff0fc4 30% );}
-    45%{background:linear-gradient(to right, #02ccba 10%, #00ff0f 40%);}
-    50%{background:linear-gradient(to right, #00ff0f 100%,#02ccba 50%);}
-    55%{background:linear-gradient(to right, #00ff0f 90%, #02ccba 40%);}
-    60%{background:linear-gradient(to right, #00ff0f 80%, #02ccba 30% );}
-    65%{background:linear-gradient(to right, #00ff0f 70%, #02ccba 20%);}
-    70%{background:linear-gradient(to right, #00ff0f 60%, #02ccba 10%);}
-    75%{background:linear-gradient(to right, #00ff0f 50%, #02ccba 0%);}
-    80%{background:linear-gradient(to right, #00ff0f 40%, #02ccba 10%);}
-    85%{background:linear-gradient(to right, #00ff0f 30%, #02ccba 20%);}
-    90%{background:linear-gradient(to right, #00ff0f 20%, #02ccba 30%);}
-    95%{background:linear-gradient(to right, #00ff0f 10%, #02ccba 40%);}
-    100%{background:linear-gradient(to right, #02ccba 100%, #00ff0f 0%);}
+@keyframes its-match {
+    0% {background: linear-gradient(to right,  #02ccba 100%, #00ff0f 50%) ;}
+    5% {background: linear-gradient(to right,  #02ccba 90%,  #00ff0f 40%);}
+    10% {background: linear-gradient(to right, #02ccba 80%, #00ff0f 30%);}
+    15% {background: linear-gradient(to right, #02ccba 70%, #00ff0f 20%);}
+    20% {background: linear-gradient(to right, #02ccbaf7 60%#00ff0f 10% );}
+    25% {background: linear-gradient(to right, #02ccba 50%, #00ff0f 0%);}
+    30% {background: linear-gradient(to right, #02ccba 40%, #00ff0f 10% );}
+    35% {background: linear-gradient(to right, #02ccba 30%, #00ff0f 20%);}
+    40% {background: linear-gradient(to right, #02ccba 20%, #00ff0fc4 30% );}
+    45% {background: linear-gradient(to right, #02ccba 10%, #00ff0f 40%);}
+    50% {background: linear-gradient(to right, #00ff0f 100%,#02ccba 50%);}
+    55% {background: linear-gradient(to right, #00ff0f 90%, #02ccba 40%);}
+    60% {background: linear-gradient(to right, #00ff0f 80%, #02ccba 30% );}
+    65% {background: linear-gradient(to right, #00ff0f 70%, #02ccba 20%);}
+    70% {background: linear-gradient(to right, #00ff0f 60%, #02ccba 10%);}
+    75% {background: linear-gradient(to right, #00ff0f 50%, #02ccba 0%);}
+    80% {background: linear-gradient(to right, #00ff0f 40%, #02ccba 10%);}
+    85% {background: linear-gradient(to right, #00ff0f 30%, #02ccba 20%);}
+    90% {background: linear-gradient(to right, #00ff0f 20%, #02ccba 30%);}
+    95% {background: linear-gradient(to right, #00ff0f 10%, #02ccba 40%);}
+    100% {background: linear-gradient(to right, #02ccba 100%, #00ff0f 0%);}
 }
 /* keeps opened cards from being cliked while open */
-.stopClick{ 
+.stop-click { 
     pointer-events: none;
 }
 
@@ -190,7 +190,7 @@ li.card{
 *styles for the modal window
 */
 /* translucent background */
-.modal{
+.modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -203,27 +203,27 @@ li.card{
 
 
 /* where the content goes */
-.mo-content{
-    display:grid;
-    grid-template-columns:100%;
-    grid-template-rows:1% 24% 55% 20%;
+.mo-content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1% 24% 55% 20%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background:white;
+    background: white;
     padding: 1rem 1.5rem;
     width: 80vw;
-    height:40vh;
+    height: 40vh;
     border-radius: 0.5rem;
-    font-size:25px; 
+    font-size: 25px; 
 }
 /* h1 inside modal */
-.modal-title{
-    font-size:40px;
+.modal-title {
+    font-size: 40px;
 }
 /* x to close window */
-.close-modal{
+.close-modal {
     float: right;
     width: 1.5rem;
     line-height: 1.5rem;
@@ -237,28 +237,28 @@ li.card{
     background-color: darkgray;
 }
 /* position of heading in grid */
-.m-title-cont{
-    grid-row-start:2;
-    align-self:center;
-    justify-self:center;
+.m-title-cont {
+    grid-row-start: 2;
+    align-self: center;
+    justify-self: center;
 }
 /* position of score in grid */
-.score-cont{
-    grid-row-start:3;
-    align-self:center;
-    justify-self:center;
+.score-cont {
+    grid-row-start: 3;
+    align-self: center;
+    justify-self: center;
 
 }
 /* position of play again in grid */
-.play-button{
-    grid-row-start:4;
-    align-self:center;
-    justify-self:center;
+.play-button {
+    grid-row-start: 4;
+    align-self: center;
+    justify-self: center;
 }
 
-.play-again{
-    font-size:40px;
-    background:linear-gradient(to right, #02ccba1f 0%, #aa7ecd52 100%)
+.play-again {
+    font-size: 40px;
+    background: linear-gradient(to right, #02ccba1f 0%, #aa7ecd52 100%)
 }
 /* animation for modal */
 .show-modal {
@@ -269,120 +269,132 @@ li.card{
 }
 
 
-.play-again:hover{
-    background:linear-gradient(to right, #02ccba9c 0%, #aa7ecd9c 100%);
-    color:white;
+.play-again:hover {
+    background: linear-gradient(to right, #02ccba9c 0%, #aa7ecd9c 100%);
+    color: white;
 }
 
-.close-modal:hover{
-    font-size:90px;
+.close-modal: hover {
+    font-size: 90px;
 }
 
 
 /* Media queries  */
-@media screen and (min-width:400px){
-    .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:40px;
+@media screen and (min-width: 400px) {
+    .timer-column, 
+    .stars-column, 
+    .moves-column,  
+    .restart-column {
+        font-size: 40px;
     }
 
-    h1{
-        font-size:49px;
+    h1 {
+        font-size: 49px;
     }
 
-    li.card{
-        width:20vw;
-        height:20vw;
+    card {
+        width: 20vw;
+        height: 20vw;
     }
 }
 
-@media screen and (min-width:500px){
-    .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:30px;
+@media screen and (min-width: 500px) {
+    .timer-column, 
+    .stars-column, 
+    .moves-column,  
+    .restart-column {
+        font-size: 30px;
     }
 
-    .restart-column{
-        grid-area:2/5/3/6
+    .restart-column {
+        grid-area: 2/5/3/6
     }
 
-    .moves-column{
-        grid-area:2/3;
+    .moves-column {
+        grid-area: 2/3;
        
     }
 
-    .timer-column{
-        grid-area:2/4;
+    .timer-column {
+        grid-area: 2/4;
     }
 
 }
 
-@media screen and (min-width:600px){
-    .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:39px;
+@media screen and (min-width: 600px) {
+    .timer-column, 
+    .stars-column, 
+    .moves-column,  
+    .restart-column {
+        font-size: 39px;
     }
     
-    .stars-column{
-        grid-area:2/2;
-        justify-self:left;
+    .stars-column {
+        grid-area: 2/2;
+        justify-self: left;
     }
 
-    .timer-column{
-        grid-area:2/5/3/4;
+    .timer-column {
+        grid-area: 2/5/3/4;
     }
 
-    h1{
-        font-size:70px;
+    h1 {
+        font-size: 70px;
     }
 }
 
-@media screen and (min-width:700px){
-    h1{
-        margin-bottom:20px;
+@media screen and (min-width: 700px) {
+    h1 {
+        margin-bottom: 20px;
     }
 
-    .timer-column, .stars-column, .moves-column,  .restart-column{
-        font-size:42px;
-        justify-self:right;
+    .timer-column, 
+    .stars-column, 
+    .moves-column,  
+    .restart-column {
+        font-size: 42px;
+        justify-self: right;
     }
 
-    .stars-column{
-        justify-self:left;
+    .stars-column {
+        justify-self: left;
     }
 
-    .moves-column{
-        padding-left:25px;
-        grid-area:2/3/3/5;
-        padding-right:130px;
+    .moves-column {
+        padding-left: 25px;
+        grid-area: 2/3/3/5;
+        padding-right: 130px;
     }
 
-    .timer-column{
-        grid-area:2/5/3/5;
-        padding-right:100px;
+    .timer-column {
+        grid-area: 2/5/3/5;
+        padding-right: 100px;
     }
 
-    li.card{
-        width:130px;
-        height:130px;
+    .card {
+        width: 130px;
+        height: 130px;
     }
 
-    .deck-grid{
-        grid-gap:25px;
+    .deck-grid {
+        grid-gap: 25px;
     }
 
-    .container-grid{
-        grid-template-columns:  1fr 160px 160px 160px 160px 1fr ;
+    .container-grid {
+        grid-template-columns: 1fr 160px 160px 160px 160px 1fr ;
        
     }
 
-    .modal-title{
-        font-size:55px;
+    .modal-title {
+        font-size: 55px;
     }
 
-    .modal-text{
-        font-size:38px;
+    .modal-text {
+        font-size: 38px;
     }
 
-    .mo-content{
-        max-width:625px;
-        max-height:395px;
+    .mo-content {
+        max-width: 625px;
+        max-height: 395px;
     }
 }

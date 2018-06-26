@@ -136,12 +136,12 @@ function openShow(clickedItem){ //adds/removes the open and show classes
     counter++;
     clickedItem.classList.toggle("open");
     clickedItem.classList.toggle("show");
-    clickedItem.classList.toggle("stopClick");
+    clickedItem.classList.toggle("stop-click");
     moveC.innerHTML=counter;
 }
 // pushes opend card to array
 function pushToArray(clickedItem){ //it adds opened cards to an empty array
-    if(clickedItem.getAttribute("class")=="card open show stopClick"){ 
+    if(clickedItem.getAttribute("class")=="card open show stop-click"){ 
         openedCards.push(clickedItem); //pushes to given array array
     }   
 }
@@ -171,7 +171,7 @@ function closeCards(arrayName){
         for(let i=0;i<arrayName.length;i++){ //if they don't it removes the open and show classes
             arrayName[i].classList.toggle("open");
             arrayName[i].classList.toggle("show");
-            arrayName[i].classList.toggle("stopClick");
+            arrayName[i].classList.toggle("stop-click");
         }
     }
 }
