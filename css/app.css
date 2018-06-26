@@ -150,24 +150,34 @@ li.card{
 
 .match {
     cursor: default;
-    background: #02ccba;
+   background: #02ccba;
     font-size: 50px;
     transform:rotateY(180deg);
-    animation:updown 0.8s;
+    animation:updown .7s;
 }
 
 @keyframes updown{
-    0%{background:linear-gradient(to right, #43c6ac24, #f8ffae24);}
-    10%{background:linear-gradient(to right, #43c6ac38, #f8ffae38);}
-    20%{background:linear-gradient(to right, #43c6ac57, #f8ffae5c);}
-    30%{background:linear-gradient(to right, #43c6ac7a, #f8ffae78);}
-    40{background:linear-gradient(to right, #43c6ac87, #f8ffae87);}
-    50%{background:linear-gradient(to right, #43c6ac9c, #f8ffae99);}
-    60%{background:linear-gradient(to right, #43c6accf, #f8ffaec7);}
-    70&{background:linear-gradient(to right, #43c6acab, #f8ffaeb8);}
-    80%{background:linear-gradient(to right, #43c6aca8, #f8ffae75);}
-    90{background:linear-gradient(to right, #43c6ac85, #f8ffae63);}
-    100%{background:linear-gradient(to right, #02ccba, #f8ffae40);}
+    0%{background:linear-gradient(to right, #02ccba 100%, #00ff0f 0%) ;}
+    5%{background:linear-gradient(to right, #02ccba 90%, #00ff0f 10%);}
+    10%{background:linear-gradient(to right, #02ccba 80%, #00ff0f 20%);}
+    15%{background:linear-gradient(to right, #02ccba 70%, #00ff0f 30%);}
+    20%{background:linear-gradient(to right, #02ccbaf7 60%, #00ff0f 40% );}
+    25%{background:linear-gradient(to right, #02ccba 50%, #00ff0f 50%);}
+    30%{background:linear-gradient(to right, #02ccba 40%, #00ff0f 60% );}
+    35%{background:linear-gradient(to right, #02ccba 30%, #00ff0f 70%);}
+    40{background:linear-gradient(to right, #02ccba 20%, #00ff0fc4 80% );}
+    45%{background:linear-gradient(to right, #02ccba 10%, #00ff0f 90%);}
+    50%{background:linear-gradient(to right, #00ff0f 100%, #02ccba 0%);}
+    55%{background:linear-gradient(to right, #00ff0f 90%, #02ccba 10%);}
+    60%{background:linear-gradient(to right, #00ff0f 80%, #02ccba 20% );}
+    65%{background:linear-gradient(to right, #00ff0f 70%, #02ccba 30%);}
+    70%{background:linear-gradient(to right,  #00ff0f 60%, #02ccba 40%);}
+    75%{background:linear-gradient(to right, #00ff0f 50%, #02ccba 50%);}
+    80%{background:linear-gradient(to right,  #00ff0f 40%, #02ccba 60%);}
+    85%{background:linear-gradient(to right, #00ff0f 30%, #02ccba 70%);}
+    90%{background:linear-gradient(to right,  #00ff0f 20%, #02ccba 80%);}
+    95%{background:linear-gradient(to right, #00ff0f 10%, #02ccba 90%);}
+    100%{background:linear-gradient(to right,  #02ccba 100%, #00ff0f 0%);}
 }
 .stopClick{
     pointer-events: none;
