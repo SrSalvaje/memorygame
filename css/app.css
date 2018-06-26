@@ -5,7 +5,6 @@
     grid-template-rows: 20% 20% 60% 0%;
 }
 
-
 html {
     box-sizing: border-box;
 }
@@ -314,6 +313,20 @@ li.card{
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+/*
+*animations
+*/
+.play-again:hover{
+    background:linear-gradient(to right, #02ccba9c 0%, #aa7ecd9c 100%);
+    color:white;
+}
+.close-modal:hover{
+    font-size:90px;
+}
+.fa-repeat:hover{
+    font-size:60px;
+    color:red;
 }
 /* Media queries  */
 @media screen and (min-width:400px){
