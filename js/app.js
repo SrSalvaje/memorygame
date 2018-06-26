@@ -71,10 +71,10 @@ function restart(){ //function called when restart is clicked
     stopGameTimer();//stops game timer (see line 222)
     clearScore(); //clear all the score and time counters (line 77)
     if(matchedCards.length>0){
-        resetCards(matchedCards, matchedCards.length);//resets the matchedCards[](line 90)
+        resetCards(matchedCards);//resets the matchedCards[](line 90)
     }
     if(openedCards.length>0){
-        resetCards(openedCards, openedCards.length);// resets the openedCards[](line 90)
+        resetCards(openedCards);// resets the openedCards[](line 90)
     }
     buildDeck(); //builds the deck (line 55)
 }
@@ -93,9 +93,9 @@ function clearScore(){
     }
 }
 //splices the given array by the number of cards indicated
-function resetCards(array, cardsToErase){
+function resetCards(array){
     closeCards(array);
-    clearArray(array, cardsToErase);
+    clearArray(array, array.length);
 }
 /*
 this section deals with flipping cards
