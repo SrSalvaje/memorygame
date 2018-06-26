@@ -17,14 +17,14 @@ const openedCards=[ //array to check for match
 const matchedCards=[ //array to store matched cards
 ]
 let myTimeOut;
-const counter=0;
+let counter=0;
 const moveC= document.querySelector(".moves");
 const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".close-modal");
 const tMinutes= document.querySelector(".minutes");
 const tSeconds=document.querySelector(".seconds");
-const minTimer=00;
-const secTimer=0;
+let minTimer=00;
+let secTimer=0;
 let secInterval;
 const stars=document.querySelectorAll(".fa-star");
 const starOne=stars[0];
@@ -150,8 +150,8 @@ function pushToArray(clickedItem){ //it adds opened cards to an empty array
 }
 //checks for match
 function checkMatch(){ //checks the array that holds the opened cards for a match
-    let cardOne=openedCards[0].firstChild.nextSibling.getAttribute("class"); //gets the class of the i elelements present in the openedCards array
-    let cardTwo=openedCards[1].firstChild.nextSibling.getAttribute("class");
+    let cardOne=openedCards[0].children[0].getAttribute("class"); //gets the class of the i elelements present in the openedCards array
+    let cardTwo=openedCards[1].children[0].getAttribute("class");
     if(cardOne==cardTwo){ //checks if they have the same class
         for(let i=0;i<openedCards.length;i++){ //if they do, it adds the match class
             openedCards[i].classList.toggle("match");
