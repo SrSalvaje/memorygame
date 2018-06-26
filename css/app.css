@@ -102,11 +102,10 @@ h1 {
     align-self:center;
     justify-self:center;
     display:inline-grid;
-    grid-template-columns: repeat(auto-fit:25%);
-    grid-template-rows: repeat(auto-fit:25%);
+    grid-template-columns: repeat(auto-fit 25%);
+    grid-template-rows: repeat(auto-fit 25%);
     grid-gap:10px;
 }
-
 
 .deck {
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
@@ -123,8 +122,6 @@ li.card{
   transition: transform 0.2s, background 0.2s, font-size 0.1s;
 
 }
-
-
 
 .card {
     background: #2e3d49;
@@ -153,116 +150,131 @@ li.card{
    background: #02ccba;
     font-size: 50px;
     transform:rotateY(180deg);
-    animation:updown 0.8s;
+    animation:itsmatch 0.9s;
 }
 
-@keyframes updown{
-    0%{background:linear-gradient(to right, #02ccba 100%, #00ff0f 50%) ;}
-    5%{background:linear-gradient(to right, #02ccba 90%, #00ff0f 40%);}
+@keyframes itsmatch{
+    0%{background:linear-gradient(to right,  #02ccba 100%, #00ff0f 50%) ;}
+    5%{background:linear-gradient(to right,  #02ccba 90%,  #00ff0f 40%);}
     10%{background:linear-gradient(to right, #02ccba 80%, #00ff0f 30%);}
     15%{background:linear-gradient(to right, #02ccba 70%, #00ff0f 20%);}
-    20%{background:linear-gradient(to right, #02ccbaf7 60%, #00ff0f 10% );}
+    20%{background:linear-gradient(to right, #02ccbaf7 60%#00ff0f 10% );}
     25%{background:linear-gradient(to right, #02ccba 50%, #00ff0f 0%);}
     30%{background:linear-gradient(to right, #02ccba 40%, #00ff0f 10% );}
     35%{background:linear-gradient(to right, #02ccba 30%, #00ff0f 20%);}
     40%{background:linear-gradient(to right, #02ccba 20%, #00ff0fc4 30% );}
     45%{background:linear-gradient(to right, #02ccba 10%, #00ff0f 40%);}
-    50%{background:linear-gradient(to right, #00ff0f 100%, #02ccba 50%);}
+    50%{background:linear-gradient(to right, #00ff0f 100%,#02ccba 50%);}
     55%{background:linear-gradient(to right, #00ff0f 90%, #02ccba 40%);}
     60%{background:linear-gradient(to right, #00ff0f 80%, #02ccba 30% );}
     65%{background:linear-gradient(to right, #00ff0f 70%, #02ccba 20%);}
-    70%{background:linear-gradient(to right,  #00ff0f 60%, #02ccba 10%);}
+    70%{background:linear-gradient(to right, #00ff0f 60%, #02ccba 10%);}
     75%{background:linear-gradient(to right, #00ff0f 50%, #02ccba 0%);}
-    80%{background:linear-gradient(to right,  #00ff0f 40%, #02ccba 10%);}
+    80%{background:linear-gradient(to right, #00ff0f 40%, #02ccba 10%);}
     85%{background:linear-gradient(to right, #00ff0f 30%, #02ccba 20%);}
-    90%{background:linear-gradient(to right,  #00ff0f 20%, #02ccba 30%);}
+    90%{background:linear-gradient(to right, #00ff0f 20%, #02ccba 30%);}
     95%{background:linear-gradient(to right, #00ff0f 10%, #02ccba 40%);}
-    100%{background:linear-gradient(to right,  #02ccba 100%, #00ff0f 0%);}
+    100%{background:linear-gradient(to right, #02ccba 100%, #00ff0f 0%);}
 }
+
 .stopClick{
     pointer-events: none;
 }
-
 
 /* 
 *cards position
  */
  
-#card1{
+.card1{
     grid-column-start: 1;
     grid-row-start: 1;
 }
-#card2{
+
+.card2{
     grid-column-start: 2;
     grid-row-start: 1;
     
 }
-#card3{
+
+.card3{
     grid-column-start: 3;
     grid-row-start: 1;
     
 }
-#card4{
+
+.card4{
     grid-column-start: 4;
     grid-row-start: 1;
     
 }
-#card5{
+
+.card5{
     grid-column-start: 1;
     grid-row-start: 2;
     
 }
-#card6{
+
+.card6{
     grid-column-start: 2;
     grid-row-start: 2;
     
 }
-#card7{
+
+.card7{
     grid-column-start: 3;
     grid-row-start: 2;
     
 }
-#card8{
+
+.card8{
     grid-column-start: 4;
     grid-row-start: 2;
     
 }
-#card9{
+
+.card9{
     grid-column-start: 1;
     grid-row-start: 3;
     
 }
-#card10{
+
+.card10{
     grid-column-start: 2;
     grid-row-start: 3;
     
 }
-#card11{
+
+.card11{
     grid-column-start: 3;
     grid-row-start: 3;
     
 }
-#card12{
+
+.card12{
     grid-column-start: 4;
     grid-row-start: 3;
     
 }
-#card13{
+
+.card13{
     grid-column-start: 1;
     grid-row-start: 4;
     
 }
-#card14{
+
+.card14{
     grid-column-start: 2;
     grid-row-start: 4;
     
 }
-#card15{
+
+.card15{
     grid-column-start: 3;
     grid-row-start: 4;
     
 }
-#card16{
+
+.card16{
     grid-column-start: 4;
     grid-row-start: 4;
     
@@ -317,6 +329,7 @@ li.card{
 .close-button:hover {
     background-color: darkgray;
 }
+
 .m-title-cont{
     grid-row-start:2;
     align-self:center;
@@ -329,21 +342,25 @@ li.card{
     justify-self:center;
 
 }
+
 .play-button{
     grid-row-start:4;
     align-self:center;
     justify-self:center;
 }
+
 .play-again{
     font-size:40px;
     background:linear-gradient(to right, #02ccba1f 0%, #aa7ecd52 100%)
 }
+
 .show-modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+
 /*
 *animations
 */
@@ -351,21 +368,26 @@ li.card{
     background:linear-gradient(to right, #02ccba9c 0%, #aa7ecd9c 100%);
     color:white;
 }
+
 .close-modal:hover{
     font-size:90px;
 }
+
 .fa-repeat:hover{
     font-size:60px;
     color:red;
 }
+
 /* Media queries  */
 @media screen and (min-width:400px){
     .timer-column, .stars-column, .moves-column,  .restart-column{
         font-size:40px;
     }
+
     h1{
         font-size:49px;
     }
+
     li.card{
         width:20vw;
         height:20vw;
@@ -376,18 +398,22 @@ li.card{
     .timer-column, .stars-column, .moves-column,  .restart-column{
         font-size:30px;
     }
+
     .restart-column{
         grid-area:2/5/3/6
     }
+
     .moves-column{
         grid-area:2/3;
        
     }
+
     .timer-column{
         grid-area:2/4;
     }
 
 }
+
 @media screen and (min-width:600px){
     .timer-column, .stars-column, .moves-column,  .restart-column{
         font-size:39px;
@@ -397,9 +423,11 @@ li.card{
         grid-area:2/2;
         justify-self:left;
     }
+
     .timer-column{
         grid-area:2/5/3/4;
     }
+
     h1{
         font-size:70px;
     }
@@ -409,39 +437,49 @@ li.card{
     h1{
         margin-bottom:20px;
     }
+
     .timer-column, .stars-column, .moves-column,  .restart-column{
         font-size:42px;
         justify-self:right;
     }
+
     .stars-column{
         justify-self:left;
     }
+
     .moves-column{
         padding-left:25px;
         grid-area:2/3/3/5;
         padding-right:130px;
     }
+
     .timer-column{
         grid-area:2/5/3/5;
         padding-right:100px;
     }
+
     li.card{
         width:130px;
         height:130px;
     }
+
     .deck-grid{
         grid-gap:25px;
     }
+
     .container-grid{
         grid-template-columns:  1fr 160px 160px 160px 160px 1fr ;
        
     }
+
     .modal-title{
         font-size:55px;
     }
+
     .modal-text{
         font-size:38px;
     }
+
     .mo-content{
         max-width:625px;
         max-height:395px;

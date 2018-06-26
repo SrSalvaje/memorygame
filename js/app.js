@@ -6,32 +6,27 @@ const cardSymbols = [ //holds cards symbols (remember index is 0 to 15)
     "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle",
     "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb",
     "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube",
-]
+];
 const getDeck = document.getElementsByClassName("deck"); //gets a NodeList with the ul element
 const useDeck = getDeck[0]; // access the ul from the NodeList
 const getListItems = useDeck.getElementsByTagName("i"); //gets  the card symbols from the ul element
 const repeat = document.querySelector(".fa-repeat"); // gets the repeat icon
-const getCards=useDeck.getElementsByClassName("card");
-const openedCards=[ //array to check for match
-]
-const matchedCards=[ //array to store matched cards
-]
-let myTimeOut;
+const openedCards=[]; //array to check for match
+const matchedCards=[]; //array to store matched cards
+let myTimeOut; //assigened by timeOut() line 127
 let counter=0;
 const moveC= document.querySelector(".moves");
 const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".close-modal");
 const tMinutes= document.querySelector(".minutes");
 const tSeconds=document.querySelector(".seconds");
-let minTimer=00;
+let minTimer=0;
 let secTimer=0;
 let secInterval;
 const stars=document.querySelectorAll(".fa-star");
 const starOne=stars[0];
 const starTwo=stars[1];
 const starThree=stars[2];
-const scores = document.querySelector(".score-panel");
-const modalContent = document.querySelector(".modal-text");
 const starsScore = document.querySelector(".stars-score");
 const minComplete= document.querySelector(".min-complete");
 const secComplete= document.querySelector(".sec-complete");
@@ -67,7 +62,8 @@ function buildDeck(){
 /*
 *this section deals with the restart button
 */
-function restart(){ //function called when restart is clicked
+//function called when restart is clicked
+function restart(){ 
     stopGameTimer();//stops game timer (see line 222)
     clearScore(); //clear all the score and time counters (line 77)
     if(matchedCards.length>0){
@@ -104,7 +100,7 @@ this section deals with flipping cards
 function flipCards(e) { 
     if(counter==0){
         gameTimer();//starts the game timer (line 201)
-    }; 
+    } 
     if (e.target !== e.currentTarget && openedCards.length<2) { //first condition keeps the event from being trigered by parent element (ul) second one keeps user from turning more than 2 cards
         let clickedItem = e.target; //gets the event target
         openShow(clickedItem); //flips cards (line 132)
@@ -123,16 +119,17 @@ function flipCards(e) {
     }
     e.stopPropagation(); //keeps the event from propagating (bubling) past the clicked item
 }
-// wait 1 sec and then clear the cards (consider decreasing time)
+// waits .5 sec and then clear the cards
 function timeOut(){
     myTimeOut = setTimeout(function(){
-        closeCards(openedCards)//(line 162)
-        clearArray(openedCards, openedCards.length)}, 1000);//(line 158)
+        closeCards(openedCards);//(line 162)
+        clearArray(openedCards, openedCards.length);
+    }, 500);//(line 158)
     return myTimeOut;
 }
 //stops the timeout
 function stopTimeout(){
-    clearTimeout(myTimeOut)
+    clearTimeout(myTimeOut);
 }
 //opens cards
 function openShow(clickedItem){ //adds/removes the open and show classes
@@ -181,7 +178,8 @@ function closeCards(arrayName){
 /*
 *this sections deals with the modal window
 */
-function toggleModal() { //toggles the class that appluies the modal window style
+//toggles the class that appluies the modal window style
+function toggleModal() { 
     modal.classList.toggle("show-modal");
 
 }
@@ -189,13 +187,15 @@ function toggleModal() { //toggles the class that appluies the modal window styl
 *this section deals with the victorry coinditions
 */
 
+//called by checkmatch() (declared in line 153, called by flipCards() in 114) to check if all cards have been matched
 function victory(){
     if(matchedCards.length==16){ //checks if all cards have been matched
         stopGameTimer(); //stops timer (line 223)
         showScore();//adds score to modal window (line 198)
-        toggleModal()//launches modal window (line 178)
+        toggleModal();//launches modal window (line 178)
     }
 }
+// displays the score and time on modal window
 function showScore(){
     starsScore.innerHTML=`${starOne.outerHTML} ${starTwo.outerHTML} ${starThree.outerHTML}`;
     minComplete.innerHTML=`${tMinutes.innerHTML}`;
@@ -204,6 +204,7 @@ function showScore(){
 /*
 *this section deals with the play again button
 */
+// closes the modal window()(see event listener in line 260) and calls restart()(line 71)
 function replay(){
     toggleModal();
     restart();
@@ -211,23 +212,24 @@ function replay(){
 /*
 *this section deals with the timer and stars score
 */
+//sets game timer (called by flipCards() in line 107)
 function gameTimer(){
     secInterval=setInterval(function(){ //stores the setinterval value to use it for clearInterval
         secTimer++;//increments the counter by 1
         if(secTimer<=9){
-            tSeconds.innerHTML=`0${secTimer}`;//updates the time html with the current value of secTimer
+            tSeconds.innerHTML=`0${secTimer}`;//updates the time html with the current value of secTimer + a 0
         }else{
-            tSeconds.innerHTML=secTimer;
+            tSeconds.innerHTML=secTimer; // if the secs are > than 9 no 0 to the left is needed
         }
         if(secTimer==31 && minTimer==0){
-            starThree.classList.toggle("starsOn");
-        }else if(secTimer==45 && minTimer==0){
+            starThree.classList.toggle("starsOn"); //at 31 secs the first star turns off
+        }else if(secTimer==45 && minTimer==0){ //at 45 secs the second star turns off
             starTwo.classList.toggle("starsOn");
-        }else if(secTimer==59){ //if the seconds reach 59
+        }else if(secTimer==59){ //if the seconds reach 59 the third star turns off
             if(minTimer==0){
                 starOne.classList.toggle("starsOn"); 
             }
-            secTimer=0; //it resets the seconds counter
+            secTimer=0; // seconds counter is reseted
             tSeconds.innerHTML=`0${secTimer}`; //modifies rhe HTML
             minTimer++;//increments the minute counter
             tMinutes.innerHTML=`0${minTimer}`; //modifies the html
@@ -254,18 +256,6 @@ repeat.addEventListener("click", function(){
 //restarts game from modal window
 playAgain.addEventListener("click", function(){
     replay();
-})
+});
 //closes the modal window when the close button is clicked
 closeButton.addEventListener("click", toggleModal);
-/*To Do:
- *
- * 
- *  
- *      
- *    + add flipping animations
- *   
- *    +write code to update modal window with score 
- *    + make responsive
- *    
- *    
- */
