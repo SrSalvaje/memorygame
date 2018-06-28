@@ -227,10 +227,7 @@ function gameTimer(){
             starThree.classList.toggle("starsOn"); //at 31 secs the first star turns off
         }else if(secTimer==45 && minTimer==0){ //at 45 secs the second star turns off
             starTwo.classList.toggle("starsOn");
-        }else if(secTimer==59){ //if the seconds reach 59 the third star turns off
-            if(minTimer==0){
-                starOne.classList.toggle("starsOn"); 
-            }
+        }else if(secTimer==59){ //resets seconds and adds 1 to minutes
             secTimer=0; // seconds counter is reseted
             tSeconds.innerHTML=`0${secTimer}`; //modifies rhe HTML
             minTimer++;//increments the minute counter
