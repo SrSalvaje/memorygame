@@ -2,7 +2,7 @@
 .container-grid {
     display: grid;
     grid-template-columns: 2% repeat(4, 24%) 2%;
-    grid-template-rows: 20% 20% 60% 0%;
+    grid-template-rows: auto/* 20% 20% 60% 0% */;
 }
 
 html {
@@ -34,7 +34,7 @@ h1 {
 .header-grid {
     display: grid;
     grid-template-columns: 5% 90% 5% ;
-    grid-template-rows: 100%;
+    grid-template-rows: auto;
 }
 
 .header-column {
@@ -110,7 +110,7 @@ h1 {
     justify-self: center;
     display: grid;
     grid-auto-columns: repeat(4, 25%);
-    grid-template-rows: repeat(4, 25%);
+    grid-template-rows: repeat(4, auto);
     grid-gap: 10px;
     grid-auto-flow: column;
 }
